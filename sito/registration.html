@@ -5,5 +5,67 @@
     <meta charset="UTF-8" />
 </head>
 <body>
+    <h1> See & Go - Registration </h1>
+    <!-- Form da mettere per bene e da togliere i br-->
+
+
+    <form>
+        <!-- Campo per Username-->
+        <label for="lbUsername">Username:</label>
+        <input type="text" id="lbUsername" name="txtUsername" />
+
+        <br />
+
+        <!-- Campo per Nome-->
+        <label for="lbNome">Nome:</label>
+        <input type="text" id="lbNome" name="txtNome" />
+
+        <br />
+
+        <!-- Campo per Cognome-->
+        <label for="lbCognome">Cognome:</label>
+        <input type="text" id="lbCognome" name="txtCognome" />
+
+        <br />
+
+        <!-- Campo per Sesso-->
+        <label for="lbSesso">Sesso:</label>
+        <!-- Mettere come default il campo vuoto??????-->
+        <select name="cbSesso" id="lbSesso">
+            <option value="femmina">F</option>
+            <option value="maschio">M</option>
+            <option value="nonSpefificato">Preferisco non specificarlo</option>
+        </select>
+
+        <br />
+
+        <!-- Campo per Email-->
+        <label for="lbEmail">Email:</label>
+        <input type="text" id="lbEmail" name="txtEmail" />
+
+        <br />
+
+        <!-- Campo per Password-->
+        <label for="lbPassword">Password:</label>
+        <input type="text" id="lbPassword" name="txtPassword" />
+
+        <br />
+
+        <!-- Campo per Ripeti Password-->
+        <label for="lbRipetiPass">Ripeti Password:</label>
+        <input type="text" id="lbRipetiPass" name="txtRipetiPass" />
+
+        <br />
+
+        <!-- Campo per Data Di Nascita-->
+        <label for="lbDataNascita">Data Di Nascita:</label>
+        <input type="date" id="lbDataNascita" name="dtDataNascita" />
+
+        <br />
+
+        <!-- Bottone che invia tutto (input type o button tag???)-->
+        <input type="submit" />
+
+    </form>
 </body>
 </html>
