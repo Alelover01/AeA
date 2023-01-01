@@ -24,69 +24,76 @@
         </div>
 
         <!-- Form da mettere per bene e da togliere i br-->
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-12 col-md-6">
+                <form>
+                    <!-- Campo per Username-->
+                    <label for="lbUsername">Username:</label>
+                    <input type="text" id="lbUsername" name="txtUsername" />
 
+                    <br />
 
-        <form>
-            <!-- Campo per Username-->
-            <label for="lbUsername">Username:</label>
-            <input type="text" id="lbUsername" name="txtUsername" />
+                    <!-- Campo per Nome-->
+                    <label for="lbNome">Nome:</label>
+                    <input type="text" id="lbNome" name="txtNome" />
 
-            <br />
+                    <br />
 
-            <!-- Campo per Nome-->
-            <label for="lbNome">Nome:</label>
-            <input type="text" id="lbNome" name="txtNome" />
+                    <!-- Campo per Cognome-->
+                    <label for="lbCognome">Cognome:</label>
+                    <input type="text" id="lbCognome" name="txtCognome" />
 
-            <br />
+                    <br />
 
-            <!-- Campo per Cognome-->
-            <label for="lbCognome">Cognome:</label>
-            <input type="text" id="lbCognome" name="txtCognome" />
+                    <!-- Campo per Sesso-->
+                    <label for="lbSesso">Sesso:</label>
+                    <!-- Mettere come default il campo vuoto??????-->
+                    <select name="cbSesso" id="lbSesso">
+                        <option value="femmina">F</option>
+                        <option value="maschio">M</option>
+                        <option value="nonSpefificato">Preferisco non specificarlo</option>
+                    </select>
 
-            <br />
+                    <br />
 
-            <!-- Campo per Sesso-->
-            <label for="lbSesso">Sesso:</label>
-            <!-- Mettere come default il campo vuoto??????-->
-            <select name="cbSesso" id="lbSesso">
-                <option value="femmina">F</option>
-                <option value="maschio">M</option>
-                <option value="nonSpefificato">Preferisco non specificarlo</option>
-            </select>
+                    <!-- Campo per Email-->
+                    <label for="lbEmail">Email:</label>
+                    <input type="text" id="lbEmail" name="txtEmail" />
 
-            <br />
+                    <br />
 
-            <!-- Campo per Email-->
-            <label for="lbEmail">Email:</label>
-            <input type="text" id="lbEmail" name="txtEmail" />
+                    <!-- Campo per Password-->
+                    <label for="lbPassword">Password:</label>
+                    <input type="password" id="lbPassword" name="txtPassword" />
 
-            <br />
+                    <br />
 
-            <!-- Campo per Password-->
-            <label for="lbPassword">Password:</label>
-            <input type="password" id="lbPassword" name="txtPassword" />
+                    <!-- Campo per Ripeti Password-->
+                    <label for="lbRipetiPass">Ripeti Password:</label>
+                    <input type="password" id="lbRipetiPass" name="txtRipetiPass" />
 
-            <br />
+                    <br />
 
-            <!-- Campo per Ripeti Password-->
-            <label for="lbRipetiPass">Ripeti Password:</label>
-            <input type="password" id="lbRipetiPass" name="txtRipetiPass" />
+                    <!-- Campo per Data Di Nascita-->
+                    <label for="lbDataNascita">Data Di Nascita:</label>
+                    <input type="date" id="lbDataNascita" name="dtDataNascita" />
 
-            <br />
+                    <br />
 
-            <!-- Campo per Data Di Nascita-->
-            <label for="lbDataNascita">Data Di Nascita:</label>
-            <input type="date" id="lbDataNascita" name="dtDataNascita" />
+                    <!-- Bottone che invia tutto (input type o button tag???)-->
+                    <input type="submit" value="Registrati" />
 
-            <br />
+                    <br />
 
-            <!-- Bottone che invia tutto (input type o button tag???)-->
-            <input type="submit" value="Registrati" />
+                    <a href="#">Ritorna alla schermata principale</a>
+                </form>
+            </div>
+            <div class="col-md-3"></div>
 
-            <br />
+        </div>
 
-            <a href="#">Ritorna alla schermata principale</a>
-        </form>
+        
     </div>
 </body>
 </html>
