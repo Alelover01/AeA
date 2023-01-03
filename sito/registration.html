@@ -30,102 +30,118 @@
             <div class="col-12 col-md-6">
                 <form>
 
+                    <!-- Campo per Usename -->
                     <div class="form-group row">
-                        <label class="col-md-2"for="lbUsername">Username:</label>
-                        <div class="form-group input-group col-md-4">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">@</div>
+                        <label class="col-md-2" for="lbUsername">Username:</label>
+                        <div class="form-group col-md-4">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">@</div>
+                                </div>
+                                <input id="lbUsername" name="txtUsername" class="form-control" placeholder="Username" type="text" required />
                             </div>
-                            <input id="lbUsername" name="txtUsername" class="form-control" placeholder="Username" type="text" required />
                         </div>
                     </div>
-                        <!-- Campo per Username-->
-                        <label for="lbUsername">Username:</label>
-                        <div class="form-group input-group">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">@</div>
+
+                    <!-- Campo per Foto Profilo-->
+                    <div class="form-group row">
+                        <label class="col-md-2" for="lbFotoProfilo">FotoProfilo:</label>
+                        <div class="form-group col-md-4">
+                            <input type="file" class="form-control-file" id="btnFile" name="btnFile">
+                        </div>
+                    </div>
+
+                    <!-- Campo per Nome-->
+                    <div class="form-group row">
+                        <label class="col-md-2" for="lbNome">Nome:</label>
+                        <div class="form-group col-md-4">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">@</div>
+                                </div>
+                                <input id="lbNome" name="txtNome" class="form-control" placeholder="Nome" type="text" required />
                             </div>
-                            <input id="lbUsername" name="txtUsername" class="form-control" placeholder="Username" type="text" required />
                         </div>
+                    </div>
 
-                        <!-- Campo per Foto Profilo-->
-                        <label for="lbFotoProfilo">FotoProfilo:</label>
-
-                        <!-- Campo per Nome-->
-                        <label for="lbNome">Nome:</label>
-                        <div class="form-group input-group">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">@</div>
+                    <!-- Campo per Cognome-->
+                    <div class="form-group row">
+                        <label class="col-md-2" for="lbCognome">Cognome:</label>
+                        <div class="form-group col-md-4">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">@</div>
+                                </div>
+                                <input id="lbCognome" name="txtCognome" class="form-control" placeholder="Cognome" type="text" required />
                             </div>
-                            <input id="lbNome" name="txtNome" class="form-control" placeholder="Nome" type="text" required />
                         </div>
+                    </div>
 
-                        <!-- Campo per Cognome-->
-                        <label for="lbCognome">Cognome:</label>
-                        <div class="form-group input-group">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">@</div>
+                    <!-- Campo per Sesso-->
+                    <!-- Mettere come default il campo vuoto??????-->
+                    <div class="form-group row">
+                        <label class="col-md-2" for="lbSesso">Sesso:</label>
+                        <div class="form-group col-md-4">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">@</div>
+                                </div>
+                                <select class="form-control" name="cbSesso" id="lbSesso" required>
+                                    <option value="femmina">F</option>
+                                    <option value="maschio">M</option>
+                                    <option value="nonSpefificato">Preferisco non specificarlo</option>
+                                </select>
                             </div>
-                            <input id="lbCognome" name="txtCognome" class="form-control" placeholder="Cognome" type="text" required />
                         </div>
+                    </div>
 
-                        <!-- Campo per Sesso-->
-                        <label for="lbSesso">Sesso:</label>
-                        <!-- Mettere come default il campo vuoto??????-->
 
-                        <div class="form-group input-group">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">@</div>
+                    <!-- Campo per Email-->
+                    <div class="form-group row">
+                        <label class="col-md-2" for="lbEmail">Email:</label>
+                        <div class="form-group col-md-4">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">@</div>
+                                </div>
+                                <input id="lbEmail" name="txtEmail" class="form-control" placeholder="name@example.com" type="text" required />
                             </div>
-                            <select class="form-control" name="cbSesso" id="lbSesso" required>
-                                <option value="femmina">F</option>
-                                <option value="maschio">M</option>
-                                <option value="nonSpefificato">Preferisco non specificarlo</option>
-                            </select>
                         </div>
+                    </div>
 
-                        <!-- Campo per Email-->
-                        <label for="lbEmail">Email:</label>
-                        <div class="form-group input-group">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">@</div>
-                            </div>
-                            <input id="lbEmail" name="txtEmail" class="form-control" placeholder="Email" type="text" required />
+                    <!-- Campo per Password-->
+                    <label for="lbPassword">Password:</label>
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">@</div>
                         </div>
+                        <input id="lbPassword" name="txtPassword" class="form-control" placeholder="Password" type="password" required />
+                    </div>
 
-                        <!-- Campo per Password-->
-                        <label for="lbPassword">Password:</label>
-                        <div class="form-group input-group">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">@</div>
-                            </div>
-                            <input id="lbPassword" name="txtPassword" class="form-control" placeholder="Password" type="password" required />
+                    <!-- Campo per Ripeti Password-->
+                    <label for="lbRipetiPass">Ripeti Password:</label>
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">@</div>
                         </div>
+                        <input id="lbRipetiPass" name="txtRipetiPass" class="form-control" placeholder="Ripeti Password" type="password" required />
+                    </div>
 
-                        <!-- Campo per Ripeti Password-->
-                        <label for="lbRipetiPass">Ripeti Password:</label>
-                        <div class="form-group input-group">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">@</div>
-                            </div>
-                            <input id="lbRipetiPass" name="txtRipetiPass" class="form-control" placeholder="Ripeti Password" type="password" required />
+                    <!-- Campo per Data Di Nascita-->
+                    <label for="lbDataNascita">Data Di Nascita:</label>
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">@</div>
                         </div>
+                        <input class="form-control" type="date" id="lbDataNascita" name="dtDataNascita" />
+                    </div>
 
-                        <!-- Campo per Data Di Nascita-->
-                        <label for="lbDataNascita">Data Di Nascita:</label>
-                        <div class="form-group input-group">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">@</div>
-                            </div>
-                            <input class="form-control" type="date" id="lbDataNascita" name="dtDataNascita" />
-                        </div>
+                    <!-- Bottone che invia tutto -->
+                    <div class="form-group">
+                        <input class="btn btn-primary btn-block" type="submit" value="Registrati" />
+                    </div>
 
-                        <!-- Bottone che invia tutto -->
-                        <div class="form-group">
-                            <input class="btn btn-primary btn-block" type="submit" value="Registrati" />
-                        </div>
-
-                        <p class="text-center">Hai già un account? <a href="Login.html">Log In</a> </p>
+                    <p class="text-center">Hai già un account? <a href="Login.html">Log In</a> </p>
                 </form>
         </div>
             <div class="col-md-3"></div>
