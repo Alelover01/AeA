@@ -1,8 +1,24 @@
 form {
     background-color: white;
     padding: 5%;
+    border-radius: 30px;
 }
 
 body {
-    background-image: url("../images/prova2.jpg");
+    background-color: #E5F9E0;
+}
+.btn-dark {
+    margin-left: 25%;
+    background-color: #2F6690;
+}
+.btn-dark:hover{
+    background-color: #3A7CA5;
+}
+
+h1 {
+    padding: 1%;
+    color: #3A7CA5;
+}
+div{
+    padding: 0 0 1% 0;
 }
