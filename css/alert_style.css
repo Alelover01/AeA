@@ -1,4 +1,4 @@
-
+/* DA CAMBIARE I PIXEL*/
 body {
     background-color: #E5F9E0;
 }
@@ -12,6 +12,46 @@ h1 {
     color: #3A7CA5;
 }
 
-p{
+
+p, ul {
     background-color: white;
+}
+ul{
+    list-style-type:none;
+    width: 50%;
+}
+/*Stile per il menù a comparsa*/
+aside > button {
+    /*Da vedere come toglierlo */
+    position: relative;
+    display: block;
+    width: 35px;
+    cursor: pointer;
+    background: none;
+    outline: none;
+    border: none;
+    /*Aggiunto io il float che è poi da mettere apposto*/
+    float: right;
+}
+
+aside > button > div, aside > button:after, aside > button:before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 5px;
+    background-color: #40C9A2;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+aside > button:before {
+    transform: rotate(-45deg) translate(-9px,7px);
+}
+    
+aside > button:after {
+        transform: rotate(45deg) translate(-8px,-7px);
+}
+    
+aside > button > div{
+    opacity:0;
 }
