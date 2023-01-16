@@ -4,3 +4,6 @@ TABELLA PERSONE
 	
 TABELLA ALERT
 	- attributi: IdAlert, NomeUtente (chi ha fatto cosa),Descrizione (like o commento -> se facciamo la perte di like). Il tutto parte con l'evento onclick del button "Commenta" o "Mi piace"
+
+
+Vedere cosa mettere unique a altro-> vedere come mettere l'attributo FotoProfilo
