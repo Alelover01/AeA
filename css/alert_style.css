@@ -20,8 +20,9 @@ ul{
     list-style-type:none;
     width: 50%;
 }
+
 /*Stile per il menù a comparsa*/
-aside > button {
+.hamburger{
     /*Da vedere come toglierlo */
     position: relative;
     display: block;
@@ -31,27 +32,40 @@ aside > button {
     outline: none;
     border: none;
     /*Aggiunto io il float che è poi da mettere apposto*/
-    float: right;
+    
 }
 
-aside > button > div, aside > button:after, aside > button:before {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 5px;
-    background-color: #40C9A2;
-    margin: 6px 0;
+.hamburger .bar, .hamburger:after, .hamburger:before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 5px;
+        background-color: #40C9A2;
+        margin: 6px 0;
+        transition: 0.4s;
+    }
+
+.hamburger.is-active:before {
+        transform: rotate(-45deg) translate(-8px,6px);
+    }
+
+.hamburger.is-active:after {
+        transform: rotate(45deg) translate(-9px,-8px);
+    }
+
+.hamburger.is-active .bar {
+        opacity: 0;
+    }
+
+.aComparsa {
+    z-index: 98;
+    background-color: white;
+    position: fixed;
+    left: 100%;
+    width: 10%;
     transition: 0.4s;
+    min-width: 15%; /*Fare tramite le media query che se è telefono sia 15% (o qualcosa di più) altrimenti 10%*/
 }
-
-aside > button:before {
-    transform: rotate(-45deg) translate(-9px,7px);
-}
-    
-aside > button:after {
-        transform: rotate(45deg) translate(-8px,-7px);
-}
-    
-aside > button > div{
-    opacity:0;
+.aComparsa.is-active{
+    left:0;
 }
