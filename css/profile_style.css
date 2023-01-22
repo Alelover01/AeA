@@ -1,7 +1,10 @@
 body{
-    background-color: #E5F9E0;
+    background-color: rgb(172, 225, 237);/*#E5F9E0;*/
 }
 
 body>header>h1{
-    color: #3A7CA5;
+    color: #f3f6f8;
+}
+body>header{
+    background-color: rgba(24,28,33,0.9);
 }
