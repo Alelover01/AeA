@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\db"
+    "\\db",
+    "\\sito"
   ],
-  "SelectedNode": "\\db\\bootstrap.php",
+  "SelectedNode": "\\sito\\Alert.html",
   "PreviewInSolutionExplorer": false
 }
