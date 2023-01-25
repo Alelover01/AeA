@@ -1,0 +1,7 @@
+body{
+    background-color: rgb(172, 225, 237);
+}
+
+body>header>a{
+    color: black;
+}
