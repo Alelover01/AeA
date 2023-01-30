@@ -1,3 +1,13 @@
+<?php
+//messo adesso per adesso qui ma dopo da cambiare
+require "bootstrap.php";
+$name=$_POST["name"]; //esempio di quello che devo mettere per tutti i campi presenti
+//controllare poi che l'utente non sia già presente'
+//trovare un bel modo per dirle se l'operazione è andata a buon fine o meno'
+//usare metodo nella fuction per  la insert dei dati nel db
+
+//FARE POI LO SCRIPT DEL RIPETI password
+?>
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -28,7 +38,7 @@
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-12 col-md-6">
-                <form>
+                <form method="post">
                     
                     <!-- Campo per Usename -->
                     <div class="form-group row">
