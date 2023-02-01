@@ -1,10 +1,28 @@
 <?php
 //messo adesso per adesso qui ma dopo da cambiare
-require "bootstrap.php";
-$name=$_POST["name"]; //esempio di quello che devo mettere per tutti i campi presenti
-//controllare poi che l'utente non sia già presente'
+require "../db/bootstrap.php";
+require "../db/database.php";
+if(isset($_POST["Registrati"]){
+    $username=$_POST["txtUsername"];
+    $nome=$_POST["txtNome"];
+    $cognome=$_POST["txtCognome"];
+    $sesso=$_POST["cbSesso"];
+    $email=$_POST["txtEmail"];
+    $password=$_POST["txtPassword"];
+    $dataNascita=$_POST["dtDataNascita"];
+    $città=$_POST["txtCittà"];
+    //da vedere come farlo funzionare
+    checkRegistration($username, $email);
+    if (result >0){
+        //la registrazione non ha avuto successo
+    }
+    else {
+        registration($username,$nome, $cognome, $sesso, $email, $password, $dataNascita, $città);
+        //registrazione avvenuta con successo
+    }
+}
 //trovare un bel modo per dirle se l'operazione è andata a buon fine o meno'
-//usare metodo nella fuction per  la insert dei dati nel db
+
 
 //FARE POI LO SCRIPT DEL RIPETI password
 ?>

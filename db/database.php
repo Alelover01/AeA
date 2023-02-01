@@ -43,7 +43,7 @@ class DatabaseHelper{
     } 
 
       //funzione che inserisce i dati dell'utente alla registrazione
-    public function checkLogin($username,$nome, $cognome, $sesso, $email, $password, $dataNascita, $città){
+    public function registration($username,$nome, $cognome, $sesso, $email, $password, $dataNascita, $città){
         $query = "INSERT INTO persone(username,nome, cognome, sesso, email, password, dataNascita, città) values(?,?,?,?,?,?,?,?)";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('ss',$username,$nome, $cognome, $sesso, $email, $password, $dataNascita, $città);
@@ -51,6 +51,15 @@ class DatabaseHelper{
         $result = $stmt->get_result();
 
         return $result->fetch_all(MYSQLI_ASSOC);
+    } 
+
+    public function checkRegistration($username, $email){
+        $query = "SELECT * FROM persone WHERE username = ? OR email = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ss',$username, $email);
+        //prova da mettere che vada
+        $result = mysqli_num_rows($query);
+        return $result;
     } 
 }  
 ?>
