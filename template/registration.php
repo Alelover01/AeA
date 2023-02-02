@@ -2,7 +2,7 @@
 //messo adesso per adesso qui ma dopo da cambiare
 require "../db/bootstrap.php";
 require "../db/database.php";
-if(isset($_POST["Registrati"]){
+if (isset($_POST["Registrati"]) {
     $username=$_POST["txtUsername"];
     $nome=$_POST["txtNome"];
     $cognome=$_POST["txtCognome"];
