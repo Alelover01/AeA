@@ -87,8 +87,11 @@ ENGINE = InnoDB;
 CREATE TABLE `post` (
   `post_id` INT NOT NULL,
   `created_by_user_id` char(45) NOT NULL,
+  `media_file` VARCHAR(45) NOT NULL,
   `created_time` VARCHAR(45) NOT NULL,
   `caption` VARCHAR(45) NULL,
+  `longitude` VARCHAR(45) NULL, --NON so se serve
+  `latitude` VARCHAR(45) NULL, --NON so se serve
   `post_type` INT NOT NULL,
   PRIMARY KEY (`post_id`),
   CONSTRAINT `Username`
@@ -169,39 +172,17 @@ CREATE INDEX `Username_idx` ON `see&go`.`comment` (`user_profile_id` ASC) VISIBL
 
 CREATE INDEX `comment_id_idx` ON `see&go`.`comment` (`comment_replied_to_id` ASC) VISIBLE;
 
-
--- -----------------------------------------------------
--- Table `post_media`
--- -----------------------------------------------------
-CREATE TABLE `post_media` (
-  `post_media_id` INT NOT NULL,
-  `post_id` INT NOT NULL,
-  `media_file` VARCHAR(45) NOT NULL,
-  `position` INT NOT NULL,
-  `longitude` VARCHAR(45) NULL,
-  `latitude` VARCHAR(45) NULL,
-  PRIMARY KEY (`post_media_id`),
-  CONSTRAINT `post_id`
-    FOREIGN KEY (`post_id`)
-    REFERENCES `see&go`.`post` (`post_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-CREATE INDEX `post_id_idx` ON `see&go`.`post_media` (`post_id` ASC) VISIBLE;
-
-
 -- -----------------------------------------------------
 -- Table `post_media_user_tag`
 -- -----------------------------------------------------
 CREATE TABLE `post_media_user_tag` (
-  `post_media_id` INT NOT NULL,
+  `post_id` INT NOT NULL,
   `user_profile_id` char(45) NOT NULL,
   `x_coordinate` VARCHAR(45) NULL,
   `y_coordinate` VARCHAR(45) NULL,
-  CONSTRAINT `post_media_id`
-    FOREIGN KEY (`post_media_id`)
-    REFERENCES `see&go`.`post_media` (`post_media_id`)
+  CONSTRAINT `post_id`
+    FOREIGN KEY (`post_id`)
+    REFERENCES `see&go`.`post` (`post_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `Username`
