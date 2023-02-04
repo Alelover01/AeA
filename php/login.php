@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/login_style.css" >
     
+
     <title>See&GO - Login</title>
     <link rel="shortcut icon" href="../images/logo.jpg">
 </head>
@@ -59,13 +60,13 @@
 
                             <!-- Submit button -->
                             <div class=" text-center row">
-                                <button type="submit" class="btn btn-primary btn-block mb-4">Login</button>
+                                <button id="btn_submit" type="submit" class="btn btn-primary btn-block mb-4">Login</button>
                             </div>
                             
 
                             <!-- Register buttons -->
                             <div class="text-center justify-content-center  mb-4 "></div>
-                                <p>Don't have an account? <a href="#!">Register here</a></p>
+                                <p>Don't have an account? <a href="../template/registration.php">Register here</a></p>
                             </div>
                         </div>
                     </div>
@@ -73,6 +74,7 @@
             </div>    
         </form>
     </section>
-      
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="../js/login.js"></script>
 </body>
 </html>
