@@ -1,10 +1,12 @@
 {
   "ExpandedNodes": [
     "",
+    "\\css",
     "\\db",
+    "\\js",
     "\\sito",
     "\\template"
   ],
-  "SelectedNode": "\\db\\bootstrap.php",
+  "SelectedNode": "\\js\\menu.js",
   "PreviewInSolutionExplorer": false
 }

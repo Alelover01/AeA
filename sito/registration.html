@@ -102,7 +102,7 @@
                         <div class="col-md-2"></div>
                         <label class="col-md-3" for="lbPassword">Password:</label>
                         <div class="form-group col-md-6">
-                            <input id="lbPassword" onkeyup="active()" name="txtPassword" class="form-control" placeholder="Password" type="password" required />
+                            <input id="lbPassword" name="txtPassword" class="form-control" placeholder="Password" type="password" required />
                         </div>
                     </div>
 
@@ -112,8 +112,8 @@
                         <label class="col-md-3" for="lbRipetiPass">Ripeti Password:</label>
                         <div class="form-group col-md-6">
                             <!-- Disabilitata e poi da abilitare quando viene emmessa la password -->
-                            <input id="lbRipetiPass" name="txtRipetiPass" class="form-control" placeholder="Ripeti Password" type="password" disabled />
-                            <div class="msgPassword"></div>
+                            <input id="lbRipetiPass" name="txtRipetiPass" class="form-control" placeholder="Ripeti Password" type="password" required />
+                            <div id="msgPassword"></div>
                         </div>
                     </div>
 
@@ -137,7 +137,7 @@
 
                     <!-- Bottone che invia tutto -->
                     <div class="form-group">
-                        <input class="btn btn-dark col-6" id="btnRegistrati" type="button" value="Registrati" />
+                        <input onclick="checkPassword()" class="btn btn-dark col-6" id="btnRegistrati" type="button" value="Registrati" />
                     </div>
 
                     <p class="text-center">Hai già un account? <a href="Login.html">Log In</a> </p>

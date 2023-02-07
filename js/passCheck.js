@@ -1,36 +1,21 @@
-const pass = document.querySelector("#lbPassword");
-const ripetiPass = document.querySelector("#lbRipetiPass");
-const msg = document.querySelector(".msgPassword");
-const btnMandare = document.querySelector("#btnRegistrati");
+function checkPassword() {
+    let pass = document.getElementById("lbPassword").value;
+    let ripetiPass = document.getElementById("lbRipetiPass").value;
+    console.log(" Password:", pass, '\n', "Confirm Password:", ripetiPass);
+    let msg = document.getElementById("msgPassword");
 
-function active() {
-    //controllo che l'utente abbia scritto una password lunga minimo 6 caratteri
-    if (pass.value.length >= 6) {
-        ripetiPass.removeAttribute("disabled", "");
-    } else {
-        ripetiPass.setAttribute("disabled", "");
-    }
-
-    //controllo che le password siano uguali (la devo fare in un preciso momento?)
-    btnMandare.onclick = function () {
-        if (pass.value != ripetiPass.value) {
-            msg.style.display = "block";
-            msg.classList.remove("match");
-            msg.textContent = "Errore! Password non uguali";
-        } else {
-            msg.style.display = "block";
-            msg.classList.add("match");
-            msg.textContent = "Password uguali";
+    if (pass.length != 0) {
+        if (pass == ripetiPass) {
+            msg.textContent = "Passwords match";
+            msg.style.backgroundColor = "#1dcd59";
+        }
+        else {
+            msg.textContent = "Password don't match";
+            msg.style.backgroundColor = "#ff4d4d";
         }
     }
-
-    if (pass.value != ripetiPass.value) {
-        msg.style.display = "block";
-        msg.classList.remove("match");
-        msg.textContent = "Errore! Password non uguali";
-    } else {
-        msg.style.display = "block";
-        msg.classList.add("match");
-        msg.textContent = "Password uguali";
+    else {
+        alert("Password can't be empty!");
+        msg.textContent = "";
     }
 }
