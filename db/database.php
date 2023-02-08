@@ -9,6 +9,7 @@ class DatabaseHelper{
             die("Connection failed: " . $db->connect_error);
         }        
     }
+    
 
     //Ricerca delle categorie dei post - NON SO SE CI SERVE???
     public function getPost_Type(){
@@ -31,22 +32,23 @@ class DatabaseHelper{
 
     //funzioni relative ai post da gestire ??
 
+   
     //funzione che controlla il login degli utenti
-    public function checkLogin($username, $password){
-        $query = "SELECT Username, Password FROM persone WHERE Username = ? AND Password = ?";
+    public function checkLogin($Username, $Password){
+        $query = "SELECT * FROM persone WHERE Username = ? AND Password = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ss',$username, $password);
+        $stmt->bind_param('ss',$Username, $Password);
         $stmt->execute();
         $result = $stmt->get_result();
 
         return $result->fetch_all(MYSQLI_ASSOC);
     } 
 
-      //funzione che inserisce i dati dell'utente alla registrazione
-    public function registration($username,$nome, $cognome, $sesso, $email, $password, $dataNascita, $città){
-        $query = "INSERT INTO persone(username,nome, cognome, sesso, email, password, dataNascita, città) values(?,?,?,?,?,?,?,?)";
+       //funzione che inserisce i dati dell'utente alla registrazione
+    public function registration($username,$nome, $cognome, $sesso, $email, $password, $dataNascita, $cittï¿½){
+        $query = "INSERT INTO persone(username,nome, cognome, sesso, email, password, dataNascita, cittï¿½) values(?,?,?,?,?,?,?,?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ss',$username,$nome, $cognome, $sesso, $email, $password, $dataNascita, $città);
+        $stmt->bind_param('ss',$username,$nome, $cognome, $sesso, $email, $password, $dataNascita, $cittï¿½);
         $stmt->execute();
         $result = $stmt->get_result();
 
@@ -61,5 +63,109 @@ class DatabaseHelper{
         $result = mysqli_num_rows($query);
         return $result;
     } 
+
+    //funzione per seguire le persone
+    public function follow($following,$followed){
+        $query = "INSERT INTO `follower` (`following_user_id`,`followed_user_id`) VALUES (?,?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ss',$following,$followed);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result;
+    }
+
+    //funzione per smettere di seguire le persone
+    public function unfollow($following,$followed){
+        $query = "DELETE FROM `follower` WHERE `following_user_id` = ? AND `followed_user_id` = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ss',$following,$followed);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result;
+    }
+
+    //funzione per cercare un utente
+    public function researchUser($searchUsername){
+        $query = "SELECT * FROM persone WHERE Username= ? ";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s',$searchUsername);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function userInDb($user) {
+        $query = "SELECT Username FROM persone WHERE Username = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s',$user);
+        $stmt->execute();
+        $result = $stmt->get_result();
+    
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    
+    public function getUserParams($user){
+        $query = "SELECT * FROM persone WHERE Username= ? ";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s',$user);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    
+    public function getFollowing($user){
+        $query = "SELECT `following_user_id` FROM `follower` WHERE `followed_user_id`=?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s', $follower);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    
+    public function getFollowed($user){
+        $query = "SELECT `followed_user_id` FROM `follower` WHERE `following_user_id`=?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s', $follower);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    
+    }
+    
+    public function isFollowing($user_following, $user_followed){
+        $query = "SELECT * FROM `follower` WHERE `following_user_id`=? AND `followed_user_id`=?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ss',$user_following, $user_followed);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    
+    public function getFotoPost($user){
+        $query = "SELECT `media_file` FROM `post` WHERE `created_by_user_id`=?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s', $user);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getNewFotoPost($user){
+        $query = "SELECT DISTINCT `media_file` FROM `post` WHERE `created_by_user_id`=? GROUP BY `created_time` DESC";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ss', $user);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 }  
 ?>
