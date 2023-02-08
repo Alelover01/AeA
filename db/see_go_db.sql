@@ -19,8 +19,8 @@ SET time_zone = "+00:00";
 
 --
 -- Database: `see&go`
--- CREATE SCHEMA IF NOT EXISTS `see&go` DEFAULT CHARACTER SET utf8 ;
--- USE `see&go` ;
+ CREATE SCHEMA IF NOT EXISTS `see&go` DEFAULT CHARACTER SET utf8 ;
+ USE `see&go` ;
 
 -- --------------------------------------------------------
 
@@ -49,7 +49,8 @@ CREATE TABLE `persone` (
   `Password` char(22) NOT NULL COMMENT 'Campo da usare per fare il check con ripeti password',
   `Paese` char(45) NOT NULL,
   `DataNascita` date NOT NULL,
-  `Città` char(22) NOT NULL COMMENT 'Andrà nel profilo'
+  `Città` char(22) NOT NULL, COMMENT 'Andrà nel profilo'
+  `Foto` char(22)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 -- --------------------------------------------------------
 
@@ -230,3 +231,44 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+/*Riempimento database*/
+--
+--Riempimento Tabella persone
+--
+INSERT INTO `persone` (`Username`, `Nome`, `Cognome`, `Sesso`, `Email`, `Password`, `Paese`, `DataNascita`, `Città`, `Foto`) 
+VALUES ('mmarioRoss', 'Mario', 'Rossi', 'Maschio', 'marioRossi@hotmail.com', 'mario0', 'Canada', '1999-02-15', 'Toronto', '../images/face2.jpg');
+
+INSERT INTO `persone` (`Username`,`Nome`,`Cognome`,`Sesso`,`Email`,`Password`,`Paese`,`DataNascita`,`Città`,`Foto`)
+VALUES (`ginaPina99`,`Gina`,`Pina`,`Femmina`,`ginaPina@hotmail.com`,`gina1`,`USA`,`1996-10-08`,`New York,"../images/face1.jpg");
+
+
+--
+--Riempimento Tabella post
+--
+INSERT INTO `post` (`post_id`, `created_by_user_id`, `media_file`, `created_time`, `caption`, `longitude`, `latitude`, `post_type`)
+VALUES (1, `ginaPina99`, `../images/pic1.png`,`2022-01-09 10:12`,`Bello bello bello bello`,``,``,`luogo`);
+
+INSERT INTO `post` (`post_id`, `created_by_user_id`, `media_file`, `created_time`, `caption`, `longitude`, `latitude`, `post_type`)
+VALUES (2, `ginaPina99`, `../images/pic2.png`,`2022-10-20 08:45`,`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus finibus commodo bibendum. Vivamus laoreet blandit odio, vel finibus quam dictum ut. Lorem ipsum dolor sit amet, consectetur adipiscing elit.`,``,``, `luogo`);
+
+INSERT INTO `post` (`post_id`, `created_by_user_id`, `media_file`, `created_time`, `caption`, `longitude`, `latitude`, `post_type`)
+VALUES (3, `ginaPina99`, `../images/face1.jpg`,`2023-02-01 02:45`,`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus finibus commodo bibendum. Vivamus laoreet blandit odio, vel finibus quam dictum ut. Lorem ipsum dolor sit amet, consectetur adipiscing elit.`,``,``, `luogo`);
+
+INSERT INTO `post` (`post_id`, `created_by_user_id`, `media_file`, `created_time`, `caption`, `longitude`, `latitude`, `post_type`)
+VALUES (4,`mmarioRoss`, `../images/pic1.png.jpg`,`2022-12-01 18:02`,`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus finibus commodo bibendum. Vivamus laoreet blandit odio, vel finibus quam dictum ut. Lorem ipsum dolor sit amet, consectetur adipiscing elit.`,``,``, `luogo`);
+--
+--Riempimento Tabella post_type
+--
+INSERT INTO `post_type` (`post_type_id`,`post_type_name`)
+VALUES (`01`,`Itinerario`);
+INSERT INTO `post_type` (`post_type_id`,`post_type_name`)
+VALUES (`02`,`Luogo`);
+INSERT INTO `post_type` (`post_type_id`,`post_type_name`)
+VALUES (`03`,`Cibo`);
+INSERT INTO `post_type` (`post_type_id`,`post_type_name`)
+VALUES (`04`,`Outfit`);
+INSERT INTO `post_type` (`post_type_id`,`post_type_name`)
+VALUES (`05`,`Tips_mezzi`);
+INSERT INTO `post_type` (`post_type_id`,`post_type_name`)
+VALUES (`06`,`Road_trip`);
