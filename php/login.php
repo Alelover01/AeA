@@ -13,26 +13,27 @@
     <link rel="shortcut icon" href="../images/logo.jpg">
 </head>
 <body>
-    
+    <main>
         <!-- Section: Background image -->
     <section  class=" bg-image" style=" background-image: url(../images/prova2.jpg); background-size: cover; background-repeat: no-repeat;">
         <header class="py-4">
             <h1 class="font-monospace fw-bold text-center">See&GO - Login</h1>
         </header>
-        <form method="POST">
-            <?php if (isset($_GET["error"])) { ?>
-            <p class="error"><?php echo $_GET["error"]; ?></p>
-            <?php } ?>
+        <div >
+            
             <h5 class="font-monospace text-center fw-bold mt-3 mb-0">Login</h5>
             <div class="col-md-8 offset-md-2 col-lg-8 offset-lg-2 div-wrapper d-flex justify-content-center align-items-center">
-            <form class="center" >
+            <form method="POST" action="#" class="center" >
                     <div class="card shadow " style="border-radius: 1rem;">
+                    <?php if (isset($_GET["error"])) { ?>
+                    <p class="error"><?php echo $_GET["error"]; ?></p>
+                    <?php } ?>
                         <div class="card-body p-5 text-center">
 
                             <!-- Username input -->
                             <div class="form-outline mb-4 row">
                                 <p class="col">Username:</p>
-                                <input type="username" id="Username" 
+                                <input type="username" id="Username" name="Username" 
                                 value="<?php if(isset($_COOKIE["user_login"])) { echo $_COOKIE["user_login"]; } ?>" 
                                 class="col form-control" placeholder="Username"/>
                                 <label class="form-label" for="Username"></label>
@@ -41,7 +42,7 @@
                             <!-- Password input -->
                             <div class="form-outline mb-4 row">
                                 <p class="col">Password:</p>
-                                <input type="password" id="Password" 
+                                <input type="password" id="Password" name="Password"
                                 value="<?php if(isset($_COOKIE["userpassword"])) { echo $_COOKIE["userpassword"]; } ?>"
                                 class="col form-control" placeholder="Password"/>
                                 <label class="form-label" for="Password"></label>
@@ -69,7 +70,7 @@
 
                             <!-- Submit button -->
                             <div class=" text-center row">
-                                <button id="btn_submit" type="submit" class="btn btn-primary btn-block mt-2 mb-4">Login</button>
+                                <button id="btn_submit" name="btn_submit" type="submit" class="btn btn-primary btn-block mt-2 mb-4">Login</button>
                             </div>
                             
 
@@ -81,8 +82,9 @@
                     </div>
                 </form>
             </div>    
-        </form>
+        </div>
     </section>
+    </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
