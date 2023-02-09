@@ -120,7 +120,7 @@ class DatabaseHelper{
     public function getFollowing($user){
         $query = "SELECT `following_user_id` FROM `follower` WHERE `followed_user_id`=?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('s', $follower);
+        $stmt->bind_param('s', $user);
         $stmt->execute();
         $result = $stmt->get_result();
 
@@ -130,7 +130,7 @@ class DatabaseHelper{
     public function getFollowed($user){
         $query = "SELECT `followed_user_id` FROM `follower` WHERE `following_user_id`=?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('s', $follower);
+        $stmt->bind_param('s', $user);
         $stmt->execute();
         $result = $stmt->get_result();
 
