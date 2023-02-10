@@ -4,18 +4,22 @@ function checkPassword() {
     console.log(" Password:", pass, '\n', "Confirm Password:", ripetiPass);
     let msg = document.getElementById("msgPassword");
 
-    if (pass.length != 0) {
+    if (pass.length > 6) {
         if (pass == ripetiPass) {
-            msg.textContent = "Passwords match";
-            msg.style.backgroundColor = "#1dcd59";
+            msg.textContent = "Password corrette";
+            msg.classList.add("txtSuccess");
+            msg.classList.remove("txtError");
         }
         else {
-            msg.textContent = "Password don't match";
-            msg.style.backgroundColor = "#ff4d4d";
+            msg.textContent = "Le password non coincidono";
+            msg.classList.add("txtError");
+            msg.classList.remove("txtSuccess");
         }
     }
     else {
-        alert("Password can't be empty!");
+        alert("La password deve avere minimo 7 caratteri");
         msg.textContent = "";
+        msg.classList.remove("txtError");
+        msg.classList.remove("txtSuccess");
     }
 }
