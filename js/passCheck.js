@@ -7,19 +7,16 @@ function checkPassword() {
     if (pass.length > 6) {
         if (pass == ripetiPass) {
             msg.textContent = "Password corrette";
-            msg.classList.add("txtSuccess");
-            msg.classList.remove("txtError");
+            msg.style.backgroundColor = "#1dcd59";
         }
         else {
             msg.textContent = "Le password non coincidono";
-            msg.classList.add("txtError");
-            msg.classList.remove("txtSuccess");
+            msg.style.backgroundColor = "#ff4d4d";
         }
     }
     else {
         alert("La password deve avere minimo 7 caratteri");
         msg.textContent = "";
-        msg.classList.remove("txtError");
-        msg.classList.remove("txtSuccess");
+        msg.style.backgroundColor = "white";
     }
 }

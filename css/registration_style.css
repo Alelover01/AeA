@@ -22,26 +22,3 @@ h1 {
 div{
     padding: 0 0 1% 0;
 }
-
-/*Stile per il messaggio di errore o di successo del ripetiPassword*/
-#msgPassword{
-    border-radius: 5px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    padding: 5px 0;
-    font-size: 12px;
-    display: none;
-    text-align:center;
-}
-
-#msgPassword.txtError {
-   display: block;
-   background-color: #da7f7c;
-   color:red;
-}
-
-#msgPassword.txtSuccess {
-   display: block;
-   background-color: #7dc77d;
-   color: #015f01;
-}
