@@ -1,3 +1,33 @@
+<?php
+require "../db/database.php";
+require "../db/bootstrap.php";
+
+if(isset($_POST["btnRegistrati"])){
+    //campi che ci servono 
+    $username = $_POST["txtUsername"];
+    $nome = $_POST["txtNome"];
+    $cognome = $_POST["txtCognome"];
+    $sesso = $_POST["cbSesso"];
+    $email = $_POST["txtEmail"];
+    $password = $_POST["txtPassword"];
+    $dataNascita = $_POST["dtDataNascita"];
+    $città = $_POST["txtCittà"];
+
+    $result = $dbh->checkRegistration($username, $email);
+    if ($result >0){
+        echo "Username o email già presenti nel database";
+        //la registrazione non ha avuto successo
+    }
+    else {
+        $result= $dbh->registration($username,$nome, $cognome, $sesso, $email, $password, $dataNascita, $città);
+        echo "Registrazione avvenuta con successo";
+        //registrazione avvenuta con successo
+    }
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -27,7 +57,7 @@
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-12 col-md-6">
-                <form method="post">
+                <form action="#" method="get">
                     
                     <!-- Campo per Usename -->
                     <div class="form-group row">
@@ -100,7 +130,7 @@
                         <div class="col-md-2"></div>
                         <label class="col-md-3" for="lbPassword">Password:</label>
                         <div class="form-group col-md-6">
-                            <input id="lbPassword" name="txtPassword" class="form-control" placeholder="Password" type="password" required />
+                            <input id="lbPassword" name="txtPassword" class="form-control" placeholder="Password minimo 7 caratteri" type="password" required />
                         </div>
                     </div>
 
@@ -135,10 +165,10 @@
 
                     <!-- Bottone che invia tutto -->
                     <div class="form-group">
-                        <input onclick="checkPassword()" class="btn btn-dark col-6" type="button" value="Registrati" />
+                        <input onclick="checkPassword()" name="btnRegistrati" class="btn btn-dark col-6" type="button" value="Registrati" />
                     </div>
 
-                    <p class="text-center">Utente registrato? <a href="Login.html">Log In</a> </p>
+                    <p class="text-center">Utente registrato? <a href="Login.php">Log In</a> </p>
                 </form>
         </div>
             <div class="col-md-3"></div>

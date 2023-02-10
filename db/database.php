@@ -45,10 +45,10 @@ class DatabaseHelper{
     } 
 
        //funzione che inserisce i dati dell'utente alla registrazione
-    public function registration($username,$nome, $cognome, $sesso, $email, $password, $dataNascita, $citt�){
-        $query = "INSERT INTO persone(username,nome, cognome, sesso, email, password, dataNascita, citt�) values(?,?,?,?,?,?,?,?)";
+    public function registration($username,$nome, $cognome, $sesso, $email, $password, $dataNascita, $città){
+        $query = "INSERT INTO persone(username,nome, cognome, sesso, email, password, dataNascita, città) values(?,?,?,?,?,?,?,?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ss',$username,$nome, $cognome, $sesso, $email, $password, $dataNascita, $citt�);
+        $stmt->bind_param('ssssssds',$username,$nome, $cognome, $sesso, $email, $password, $dataNascita, $città);
         $stmt->execute();
         $result = $stmt->get_result();
 
