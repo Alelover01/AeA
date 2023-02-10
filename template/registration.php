@@ -1,31 +1,4 @@
-<?php
-require "../db/database.php";
-require "../db/bootstrap.php";
 
-if(isset($_POST["btnRegistrati"])){
-    //campi che ci servono 
-    $username = $_POST["txtUsername"];
-    $nome = $_POST["txtNome"];
-    $cognome = $_POST["txtCognome"];
-    $sesso = $_POST["cbSesso"];
-    $email = $_POST["txtEmail"];
-    $password = $_POST["txtPassword"];
-    $dataNascita = $_POST["dtDataNascita"];
-    $città = $_POST["txtCittà"];
-
-    $result = $dbh->checkRegistration($username, $email);
-    if ($result >0){
-        echo "Username o email già presenti nel database";
-        //la registrazione non ha avuto successo
-    }
-    else {
-        $result= $dbh->registration($username,$nome, $cognome, $sesso, $email, $password, $dataNascita, $città);
-        echo "Registrazione avvenuta con successo";
-        //registrazione avvenuta con successo
-    }
-}
-
-?>
 
 
 <!DOCTYPE html>
@@ -57,7 +30,9 @@ if(isset($_POST["btnRegistrati"])){
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-12 col-md-6">
-                <form action="#" method="get">
+
+
+                <form action="#" method="post" name="Registrati" >
                     
                     <!-- Campo per Usename -->
                     <div class="form-group row">
