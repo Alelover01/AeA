@@ -149,7 +149,7 @@ class DatabaseHelper{
     }
     
     public function getFotoPost($user){
-        $query = "SELECT `media_file` FROM `post` WHERE `created_by_user_id`=?";
+        $query = "SELECT *  FROM `post` WHERE `created_by_user_id`=?"; 
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s', $user);
         $stmt->execute();
@@ -158,14 +158,63 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getNewFotoPost($user){
-        $query = "SELECT DISTINCT `media_file` FROM `post` WHERE `created_by_user_id`=? GROUP BY `created_time` DESC";
+    public function getPostUser($user,$idPost){
+        $query = "SELECT *  FROM `post` WHERE `created_by_user_id`=? AND `post_id`=?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ss', $user);
+        $stmt->bind_param('ss', $user,$idPost);
         $stmt->execute();
         $result = $stmt->get_result();
 
         return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getLikesPost($idPost){
+        $query = "SELECT *  FROM `like` WHERE `post_id`=?"; 
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s', $idPost);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getCommentsPost($idPost){
+        $query = "SELECT *  FROM `comment` WHERE `post_id`=?"; 
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s', $idPost);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function insertComment($id,$comment,$user,$post){
+        $query = "INSERT INTO `comment` (`comment_id`,`comment_text`,`user_profile_id`,`post_id`)  VALUES (?,?,?,?)"; 
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ssss', $id,$comment,$user,$post);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result;
+    }
+
+    public function getLastIdComm(){
+        $query = "SELECT MAX(`comment_id`) as `comment_id` FROM `comment` ORDER BY `comment_id`;"; 
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function insertLike($post,$user){
+        $query = "INSERT INTO `like` (`post_id`,`user_profile_id`)  VALUES (?,?)"; 
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ss',$post,$user);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result;
     }
 }  
 ?>
