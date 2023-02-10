@@ -3,7 +3,7 @@
 <head>
     <link rel="shortcut icon" href="../images/logo.jpg">
     <title> See & Go - Registration </title>
-    <meta charset= "UTF-8" />
+    <meta charset= "utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Bootstrap CSS -->
@@ -128,7 +128,7 @@
 					<!-- Campo per Città-->
                     <div class="form-group row">
                         <div class="col-md-2"></div>
-                        <label class="col-md-3" for="lbCittà">Città:</label>
+                        <label class="col-md-3" for="lbCittà">Luogo:</label>
                         <div class="form-group col-md-6">
                             <input id="lbCittà" name="txtCittà" class="form-control" placeholder="Milan" type="text" required />
                         </div>
@@ -139,7 +139,7 @@
                         <input onclick="checkPassword()" class="btn btn-dark col-6" type="button" value="Registrati" />
                     </div>
 
-                    <p class="text-center">Hai già un account? <a href="Login.html">Log In</a> </p>
+                    <p class="text-center">Utente registrato? <a href="Login.html">Log In</a> </p>
                 </form>
         </div>
             <div class="col-md-3"></div>

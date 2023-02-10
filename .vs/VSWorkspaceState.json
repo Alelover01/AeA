@@ -1,9 +1,11 @@
 {
   "ExpandedNodes": [
     "",
+    "\\css",
     "\\js",
+    "\\php",
     "\\template"
   ],
-  "SelectedNode": "\\js\\login.txt",
+  "SelectedNode": "\\css\\registration_style.css",
   "PreviewInSolutionExplorer": false
 }

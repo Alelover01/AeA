@@ -32,15 +32,14 @@ div{
     display: none;
     text-align: center;
 }
-
-    #msgPassword.txtError {
+.txtError {
         display: block;
         background-color: #da7f7c;
         color: red;
-    }
+}
 
-    #msgPassword.txtSuccess {
+.txtSuccess {
         display: block;
         background-color: #7dc77d;
         color: #015f01;
-    }
+}
