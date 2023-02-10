@@ -7,44 +7,41 @@ form {
 body {
     background-color: #E5F9E0;
 }
-
 .btn-dark {
     margin-left: 25%;
     background-color: #2F6690;
 }
-
-    .btn-dark:hover {
-        background-color: #3A7CA5;
-    }
+.btn-dark:hover{
+    background-color: #3A7CA5;
+}
 
 h1 {
     padding: 1%;
     color: #3A7CA5;
 }
-
-div {
+div{
     padding: 0 0 1% 0;
 }
 
 /*Stile per il messaggio di errore o di successo del ripetiPassword*/
-#msgPassword {
+#msgPassword{
     border-radius: 5px;
     text-transform: uppercase;
     letter-spacing: 2px;
     padding: 5px 0;
     font-size: 12px;
     display: none;
-    text-align: center;
+    text-align:center;
 }
 
-    #msgPassword.txtError {
-        display: block;
-        background-color: #da7f7c;
-        color: red;
-    }
+#msgPassword.txtError {
+   display: block;
+   background-color: #da7f7c;
+   color:red;
+}
 
-    #msgPassword.txtSuccess {
-        display: block;
-        background-color: #7dc77d;
-        color: #015f01;
-    }
+#msgPassword.txtSuccess {
+   display: block;
+   background-color: #7dc77d;
+   color: #015f01;
+}
