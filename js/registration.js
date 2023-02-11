@@ -1,9 +1,7 @@
-
 function checkPassword() {
     
     let pass = document.getElementById("lbPassword").value;
     let ripetiPass = document.getElementById("lbRipetiPass").value;
-    console.log(" Password:", pass, '\n', "Confirm Password:", ripetiPass);
     let msg = document.getElementById("msgPassword");
 
     if (pass.length > 6) {
@@ -19,9 +17,9 @@ function checkPassword() {
             let dataNascita = document.getElementById("lbDataNascita").value;
             let luogo = document.getElementById("lbCittà").value;
 
-
-            window.open('../template/index.php?username=' + username + '&foto=' + foto + '&nome=' + nome + '&cognome=' + cognome + '&sesso=' + sesso + '&email=' + email +
-                '&pass=' + pass + '&dataNascita=' + dataNascita + '&luogo=' + luogo);
+            //funzione che controlla che ogni elemento inserito nella pagina non sia vuoto
+            checkInput(username, foto, nome, cognome, sesso, email, pass, dataNascita, luogo);
+            
         }
         else {
             msg.textContent = "Le password non coincidono";
@@ -35,3 +33,12 @@ function checkPassword() {
     }
 }
 
+function checkInput(username, foto, nome, cognome, sesso, email, pass, dataNascita, luogo) {
+    if ((username != 0) && (foto != 0) && (nome != 0) && (cognome != 0) && (sesso != 0) && (email != 0) && (pass != 0) && (dataNascita != 0) && (luogo != 0) ) {
+        window.open('../template/index.php?username=' + username + '&foto=' + foto + '&nome=' + nome + '&cognome=' + cognome + '&sesso=' + sesso + '&email=' + email +
+            '&pass=' + pass + '&dataNascita=' + dataNascita + '&luogo=' + luogo);
+    }
+    else {
+        alert("Attenzione vanno inserti tutti i campi!");
+    }
+}
