@@ -1,0 +1,60 @@
+ESEMPIO DI VARIABILE JS PASSATA A PHP:
+
+JS
+// Variabile JavaScript
+var javascriptVariable = 'Some Value';
+
+// Invio della richiesta con la variabile tramite fetch
+fetch('receive.php', {
+  method: 'POST',
+  headers: {
+    'Content-type': 'application/x-www-form-urlencoded'
+  },
+  body: 'jsVariable=' + javascriptVariable
+})
+.then(function (response) {
+  return response.text();
+})
+.then(function (responseText) {
+  console.log(responseText);
+})
+.catch(function (error) {
+  console.error(error);
+});
+
+
+PHP
+<?php
+  // Ricezione della variabile inviata da JavaScript
+  $javascriptVariable = $_POST['jsVariable'];
+
+  // Elaborazione della variabile
+  // ...
+
+  // Restituzione di una risposta al client
+  echo 'La variabile è stata ricevuta e elaborata con successo!';
+?>
+
+
+RICARDICANDO IL FILE:
+JS
+// Variabile JavaScript
+var javascriptVariable = 'Some Value';
+
+// Creazione dell'URL con la query string
+var url = 'receive.php?jsVariable=' + javascriptVariable;
+
+// Apertura del file PHP con la query string
+window.location.href = url;
+
+PHP
+<?php
+  // Ricezione della variabile inviata dalla query string
+  $javascriptVariable = $_GET['jsVariable'];
+
+  // Elaborazione della variabile
+  // ...
+
+  // Restituzione di una pagina HTML
+  echo '<html><body>La variabile è stata ricevuta e elaborata con successo!</body></html>';
+?>
