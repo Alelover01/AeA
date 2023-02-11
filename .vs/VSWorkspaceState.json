@@ -2,10 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\css",
-    "\\js",
-    "\\php",
+    "\\sito",
     "\\template"
   ],
-  "SelectedNode": "\\css\\registration_style.css",
+  "SelectedNode": "\\template\\alert.php",
   "PreviewInSolutionExplorer": false
 }
