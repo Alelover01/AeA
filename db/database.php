@@ -30,6 +30,8 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    //funzioni relative ai post da gestire ??
+
    
     //funzione che controlla il login degli utenti
     public function checkLogin($Username, $Password){
@@ -38,15 +40,14 @@ class DatabaseHelper{
         $stmt->bind_param('ss',$Username, $Password);
         $stmt->execute();
         $result = $stmt->get_result();
-
         return $result->fetch_all(MYSQLI_ASSOC);
     } 
 
        //funzione che inserisce i dati dell'utente alla registrazione
-    public function registration($username,$foto,$nome, $cognome, $sesso, $email, $password, $dataNascita, $città){
+    public function registration($username,$foto, $nome, $cognome, $sesso, $email, $password, $dataNascita, $città){
         $query = "INSERT INTO persone(username,foto, nome, cognome, sesso, email, password, dataNascita, città) values(?,?,?,?,?,?,?,?,?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('sssssssds',$username,$foto,$nome, $cognome, $sesso, $email, $password, $dataNascita, $città);
+        $stmt->bind_param('sssssssds',$username,$foto, $nome, $cognome, $sesso, $email, $password, $dataNascita, $città);
         $stmt->execute();
         $result = $stmt->get_result();
 
