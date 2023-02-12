@@ -24,7 +24,7 @@ require "../db/bootstrap.php";
         }
 
     }
-
+    
     require "registration.php";
 
 ?>

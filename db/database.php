@@ -30,6 +30,16 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+
+    public function getIdPostByPostName($post_type_name){
+        $stmt = $this->db->prepare("SELECT post_type_id  FROM post_type WHERE post_type_name =?");
+        $stmt->bind_param('i',$post_type_name);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
    
     //funzione che controlla il login degli utenti
     public function checkLogin($Username, $Password){
@@ -42,6 +52,7 @@ class DatabaseHelper{
     } 
 
        //funzione che inserisce i dati dell'utente alla registrazione
+<<<<<<< HEAD
     public function registration($username,$foto, $nome, $cognome, $sesso, $email, $password, $dataNascita, $città){
         $query = "INSERT INTO persone(username,foto, nome, cognome, sesso, email, password, dataNascita, città) values(?,?,?,?,?,?,?,?,?)";
         $stmt = $this->db->prepare($query);
@@ -85,7 +96,7 @@ class DatabaseHelper{
 
     //funzione per cercare un utente
     public function researchUser($searchUsername){
-        $query = "SELECT * FROM persone WHERE Username= ? ";
+        $query = "SELECT * FROM persone WHERE Username= ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s',$searchUsername);
         $stmt->execute();
@@ -214,6 +225,16 @@ class DatabaseHelper{
         return $result;
     }
 
+    public function insertPosts($post,$user, $author, $img, $text, $category){
+        $query = "INSERT INTO `like` (`post_id`,`user_profile_id`, ')  VALUES (?,?)"; 
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ss',$post,$user);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result;
+    }
+
     public function getRandomPosts($n){
         $stmt = $this->db->prepare("SELECT idarticolo, titoloarticolo, imgarticolo FROM articolo ORDER BY RAND() LIMIT ?");
         $stmt->bind_param('i',$n);
@@ -266,5 +287,25 @@ class DatabaseHelper{
         var_dump($stmt->error);
         return true;
     }
+
+    public function createPost($post_id, $createByUserId, $mediaFile, $created_time, $caption, $post_type) {
+        $query = "INSERT INTO post (post_id, created_by_user_id, media_file, created_time, caption, post_type) VALUES(?, ?, ?, ?, ?, ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ssssss',$post_id, $createByUserId, $mediaFile, $created_time, $caption, $post_type);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result;
+    }
+
+    public function getLastIdPost(){
+        $query = "SELECT MAX(`post_id`) as `post_id` FROM `post` ORDER BY `post_id`;"; 
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 }  
+
 ?>

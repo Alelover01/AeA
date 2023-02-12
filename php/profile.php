@@ -37,7 +37,7 @@
                     <li>
                         <a  href="alert.php"><img src="../images/notifiche.png" alt="Icona Notifiche" /></a>
                     </li>
-                    <li><?php $profile = true;?>
+                    <li>
                         <a  href='index_user_profile.php'><img  src="../images/profilo.png" alt="Icona Profilo" /></a>
                     </li>
                 </ul>
@@ -59,7 +59,7 @@
                                     </li>
                                     <li class="list-inline-item text-center" >
                                         <h4 class="font-italic mt-2 mb-0" ><?php echo $templateParams["profile"]["Nome"]?> <?php echo $templateParams["profile"]["Cognome"]?></h4>
-                                        <p class="font-italic mb-0">@<?php echo $templateParams["profile"]["Username"]?></p>
+                                        <p id="username" class="font-italic mb-0">@<?php echo $templateParams["profile"]["Username"]?></p>
                                         <p class="font-italic mb-0"><?php echo $templateParams["profile"]["Città"]?>, <?php echo $templateParams["profile"]["Paese"]?></p>
                                     </li>
                                     
@@ -115,15 +115,18 @@
                                 <div class="row"> 
                                 <?php 
                                     $arr_media = $dbh->getFotoPost($templateParams["profile"]["Username"]);
-                                    foreach($arr_media as $postUser):
-                                        foreach($postUser as $media): ?>
-                                        <div class="col-lg-6 mb-2 pr-lg-1">
-                                            <img src=<?php echo $media; ?>
-                                            style="width: 80%; height: 100%;" alt="" class="img-fluid rounded shadow-sm">
-                                        </div> 
-                                        <?php endforeach; ?>
-                                    <?php endforeach; ?>
+                                    foreach($arr_media as $postUser):?>
+                                    <div class="col-lg-6 mb-2 pr-lg-1">
+                                        <?php if(isset($user_profile) && $user_profile == true):?>
+                                                <a href='index_post_user.php?post_id=<?php echo $postUser['post_id']; ?>'  name='idPost'><img  src=<?php echo $postUser['media_file']?> 
+                                                style='width: 80%; height: 100%;' class='img-fluid rounded shadow-sm'/></a>
+                                        <?php else:?>
+                                                <a href='index_post_other.php?post_id=<?php echo $postUser['post_id'];?>' name='idPost'><img src=<?php echo $postUser['media_file']?>
+                                                style='width: 80%; height: 100%;' class='img-fluid rounded shadow-sm'/></a>
+                                        <?php endif; ?>
                                     </div>
+                                <?php endforeach; ?>
+                                </div>
                                 </div> 
                             </div>
                         </div> 
@@ -145,5 +148,6 @@
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="../js/follow-unfollow.js"></script>
+        
     </body>
 </html>

@@ -16,5 +16,5 @@ $templateParams["profile"] = array_merge($templateParams["profile"], array("foll
 
 $user_profile = false;
 
-require_once "../php/profile.php"; //?
+require_once "../php/profile.php"; 
 ?>

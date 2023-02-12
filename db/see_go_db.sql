@@ -117,11 +117,8 @@ CREATE INDEX `post_type_id_idx` ON `see&go`.`post` (`post_type` ASC) VISIBLE;
 -- -----------------------------------------------------
 /*OPZIONALE!! SE RIUSCIAMO A FARLO MOLTO MEGLIO!!*/
 CREATE TABLE `like` (
-  `like_id` INT NOT NULL,
   `post_id` INT NOT NULL,
   `user_profile_id` char(45) NOT NULL,
-  `created_time` DATETIME NOT NULL,
-  PRIMARY KEY (`like_id`),
   CONSTRAINT `Username`
     FOREIGN KEY (`user_profile_id`)
     REFERENCES `see&go`.`persone` (`Username`)

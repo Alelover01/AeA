@@ -14,6 +14,6 @@ require_once "../db/bootstrap.php";
     $user_profile = true;
 
 
-require_once "../php/profile.php"; //?
+require_once "../php/profile.php";
 
 ?>

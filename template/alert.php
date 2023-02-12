@@ -40,8 +40,9 @@
 
     </aside>
     <main>
-        <div class="alert alert-info"><div style="font-size:18px; font-weight:bold;background:none;">Ale</div> ha iniziato ha seguirti</div>
-        <div class="alert alert-dark"><div style="font-size:18px; font-weight:bold;background:none;">Ale</div> ha commentato un tuo post</div>
+
+         <div class="alert alert-info"><div style="font-size:18px; font-weight:bold;background:none;">Ale</div> ha iniziato ha seguirti</div>
+         <div class="alert alert-dark"><div style="font-size:18px; font-weight:bold;background:none;">Ale</div> ha commentato un tuo post</div>
     </main>
 </body>
 </html>

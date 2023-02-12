@@ -11,33 +11,41 @@
         <script src="../js/menu.js"></script>
 
     <title>See&Go - Homepage</title>
+   
     <link rel="shortcut icon" href=".../progetto/images/logo.jpg">
   </head>
   <body class="bg-light">
     <header class="py-3 text-white bg-dark">
       <h1 class="font-monospace text-center">See&Go - Homepage</h1>
+      
     </header> 
               <aside>
-                <button class="hamburger">
+                
+              <button class="hamburger">
                     <div class="bar"></div>
                 </button>
-                <!-- Menù a comparsa -->
-                <nav class="aComparsa">
-                    <ul>
-                        <li>
-                            <a href="home.html"><img src="../images/home.png" alt="Icona Home" /></a>
-                        </li>
-                        <li>
-                            <a href="cerca.php"><img src="../images/cerca.png" alt="Icona Cerca" /></a>
-                        </li>
-                        <li>
-                            <a href="alert.html"><img src="../images/notifiche.png" alt="Icona Notifiche" /></a>
-                        </li>
-                        <li>
-                            <a href='index_user_profile.php'><img src="../images/profilo.png" alt="Icona Profilo" /></a>
-                        </li>
-                    </ul>
-                </nav>
+                
+                
+                <button type="button" class="btn text-white bg-dark btn-block"><a class="text-white text-decoration-none" href="post_form.php">Create Post</a></button>
+                
+
+                  <!-- Menù a comparsa -->
+                  <nav class="aComparsa">
+                      <ul>
+                          <li>
+                              <a href="home.html"><img src="../images/home.png" alt="Icona Home" /></a>
+                          </li>
+                          <li>
+                              <a href="cerca.php"><img src="../images/cerca.png" alt="Icona Cerca" /></a>
+                          </li>
+                          <li>
+                              <a href="alert.html"><img src="../images/notifiche.png" alt="Icona Notifiche" /></a>
+                          </li>
+                          <li>
+                              <a href='index_user_profile.php'><img src="../images/profilo.png" alt="Icona Profilo" /></a>
+                          </li>
+                      </ul>
+                  </nav>
         
             </aside>
           <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"> -->
@@ -55,6 +63,7 @@
                         <div class="bg-white shadow rounded"> 
                             <div class="im2 px-4 pt-2 pb-4">
                             
+
                                   <div class="media mb-3">
                                     <!-- PRIMO POST -->
                                     <img src="https://i.pinimg.com/236x/13/34/25/133425fd2890d540e536e12a397bbf5c.jpg" class="d-block ui-w-20 rounded-circle" alt="">
@@ -145,6 +154,6 @@
             </div>   
         </div>       
     </main>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+   
   </body>
 </html>
