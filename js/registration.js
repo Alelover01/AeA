@@ -32,12 +32,12 @@ function checkPassword() {
 }
 
 function checkInput(username, foto, nome, cognome, sesso, email, pass, dataNascita, luogo) {
-    
-    if ((username != 0) && (foto != 0) && (nome != 0) && (cognome != 0) && (sesso != 0) && (email != 0) && (pass != 0) && (dataNascita != 0) && (luogo != 0) ) {
-        let url ='../template/registration-redirect.php?username=' + username + '&foto=' + foto + '&nome=' + nome + '&cognome=' + cognome + '&sesso=' + sesso + '&email=' + email +
+
+    if ((username != 0) && (foto != 0) && (nome != 0) && (cognome != 0) && (sesso != 0) && (email != 0) && (pass != 0) && (dataNascita != 0) && (luogo != 0)) {
+        let url = '../template/registration-redirect.php?username=' + username + '&foto=' + foto + '&nome=' + nome + '&cognome=' + cognome + '&sesso=' + sesso + '&email=' + email +
             '&pass=' + pass + '&dataNascita=' + dataNascita + '&luogo=' + luogo;
         window.location.pathname = url;
-    } 
+    }
     else {
         alert("Attenzione vanno inserti tutti i campi!");
     }
