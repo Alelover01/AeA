@@ -45,22 +45,22 @@ class DatabaseHelper{
     } 
 
        //funzione che inserisce i dati dell'utente alla registrazione
-    public function registration($username,$nome, $cognome, $sesso, $email, $password, $dataNascita, $città){
-        $query = "INSERT INTO persone(username,nome, cognome, sesso, email, password, dataNascita, città) values(?,?,?,?,?,?,?,?)";
+    public function registration($username,$foto,$nome, $cognome, $sesso, $email, $password, $dataNascita, $città){
+        $query = "INSERT INTO persone(username,foto, nome, cognome, sesso, email, password, dataNascita, città) values(?,?,?,?,?,?,?,?,?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ssssssds',$username,$nome, $cognome, $sesso, $email, $password, $dataNascita, $città);
+        $stmt->bind_param('sssssssds',$username,$foto,$nome, $cognome, $sesso, $email, $password, $dataNascita, $città);
         $stmt->execute();
         $result = $stmt->get_result();
 
-        return $result->fetch_all(MYSQLI_ASSOC);
+        return $result;
     } 
 
-    public function checkRegistration($username, $email){
-        $query = "SELECT * FROM persone WHERE username = ? OR email = ?";
+    public function checkRegistration($username){
+        $query = "SELECT * FROM persone WHERE username = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ss',$username, $email);
-        //prova da mettere che vada
-        $result = mysqli_num_rows($query);
+        $stmt->bind_param('s',$username);
+        $stmt->execute();
+        $result = $stmt->get_result();
         return $result;
     } 
 
