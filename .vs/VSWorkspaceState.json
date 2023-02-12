@@ -1,11 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\css",
-    "\\js",
-    "\\php",
     "\\template"
   ],
-  "SelectedNode": "\\php\\profile.php",
+  "SelectedNode": "\\template\\registration.php",
   "PreviewInSolutionExplorer": false
 }
