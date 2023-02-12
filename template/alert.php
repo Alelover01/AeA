@@ -28,16 +28,16 @@ require "../db/bootstrap.php";
         <nav class="aComparsa">
             <ul>
                 <li>
-                    <a href="home.html"><img src="../images/home.png" alt="Icona Home" /></a>
+                    <a href="home.php"><img src="../images/home.png" alt="Icona Home" /></a>
                 </li>
                 <li>
-                    <a href="CercaProgetto.html"><img src="../images/cerca.png" alt="Icona Cerca" /></a>
+                    <a href="CercaProgetto.php"><img src="../images/cerca.png" alt="Icona Cerca" /></a>
                 </li>
                 <li>
-                    <a href="alert.html"><img src="../images/notifiche.png" alt="Icona Notifiche" /></a>
+                    <a href="alert.php"><img src="../images/notifiche.png" alt="Icona Notifiche" /></a>
                 </li>
                 <li>
-                    <a href="profile.html"><img src="../images/profilo.png" alt="Icona Profilo" /></a>
+                    <a href="profile.php"><img src="../images/profilo.png" alt="Icona Profilo" /></a>
                 </li>
             </ul>
         </nav>
