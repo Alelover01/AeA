@@ -29,4 +29,4 @@ require "../db/bootstrap.php";
 
 ?>
 
-<div class="alert alert-info"><?php echo $msg ?></div>
+<div class="alert alert-info text-center"><?php echo $msg ?></div>

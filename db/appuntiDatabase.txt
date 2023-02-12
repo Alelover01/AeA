@@ -1,9 +1,0 @@
-TABELLA PERSONE
-	- attributi: Username(IdTabella -> Ogni volta che qualcuno si registra controllare che esso non sia già presente in tabella),Nome, Cognome, Sesso, Email, Password (non c'è bidogno di ripeti password, controllo direttamente mentre si inserire DA VEDERE COME FARE -> fare in modo che ripeti password sia solo accessibile quando se non si compila il campo password), DataNascita , FotoProfilo
-	PUNTO BONUS : difficoltà password
-	
-TABELLA ALERT
-	- attributi: IdAlert, NomeUtente (chi ha fatto cosa),Descrizione (like o commento -> se facciamo la perte di like). Il tutto parte con l'evento onclick del button "Commenta" o "Mi piace"
-
-
-Vedere cosa mettere unique a altro-> vedere come mettere l'attributo FotoProfilo
