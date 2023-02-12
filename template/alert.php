@@ -45,7 +45,7 @@ require "../db/bootstrap.php";
     </aside>
     <main>
          <?php 
-         $res = $dbh->getAlert($_SESSION['username']);
+         $res = $dbh->getAlert($_SESSION['Username']);
          foreach ($res as $alert):
             ?>
             <div id="alert" class="alert alert-dark">
@@ -53,7 +53,7 @@ require "../db/bootstrap.php";
                 <?php echo $alert['UserPost']?>
                 </div>
             <?php echo $alert['Descrizione']?>
-            <div style="background:none;"><a href="#">Vai al post</a></div>
+            <div style="background:none;"><a href='index_post_user.php?post_id=<?php echo $alert['IdPost']; ?>'>Vai al post</a></div>
             </div>
             <?php endforeach; ?>
     </main>

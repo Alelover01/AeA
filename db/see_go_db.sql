@@ -30,8 +30,10 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `notifiche` (
   `IdAlert` int(10) NOT NULL,
-  `NomeUtente` char(22) NOT NULL COMMENT 'Nome di chi compie l''azione',
-  `Descrizione` char(22) NOT NULL COMMENT 'Opzionale se non si fa il like e commenta'
+  `UserPost` char(22) NOT NULL,
+  `Descrizione` char(255) NOT NULL,
+  `User` varchar(22) NOT NULL,
+  `IdPost` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -41,18 +43,51 @@ CREATE TABLE `notifiche` (
 --
 
 CREATE TABLE `persone` (
-  `Username` char(22) NOT NULL COMMENT 'Indice Tabella in modo da avere username diversi ogni volta',
+   `Username` char(22) NOT NULL,
+  `foto` varchar(255) NOT NULL,
   `Nome` char(22) NOT NULL,
   `Cognome` char(22) NOT NULL,
   `Sesso` char(22) NOT NULL,
   `Email` char(22) NOT NULL,
-  `Password` char(22) NOT NULL COMMENT 'Campo da usare per fare il check con ripeti password',
-  `Paese` char(45) NOT NULL,
-  `DataNascita` date NOT NULL,
-  `Città` char(22) NOT NULL, COMMENT 'Andrà nel profilo'
-  `Foto` char(22)
+  `Password` char(22) NOT NULL,
+  `DataNascita` varchar(22) DEFAULT NULL,
+  `Città` char(22) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 -- --------------------------------------------------------
+-- Indici per le tabelle `notifiche`
+--
+ALTER TABLE `notifiche`
+  ADD PRIMARY KEY (`IdAlert`),
+  ADD KEY `UserPost` (`UserPost`),
+  ADD KEY `User` (`User`);
+
+--
+-- Indici per le tabelle `persone`
+--
+ALTER TABLE `persone`
+  ADD PRIMARY KEY (`Username`);
+
+--
+-- AUTO_INCREMENT per le tabelle scaricate
+--
+
+--
+-- AUTO_INCREMENT per la tabella `notifiche`
+--
+ALTER TABLE `notifiche`
+  MODIFY `IdAlert` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Limiti per le tabelle scaricate
+--
+
+--
+-- Limiti per la tabella `notifiche`
+--
+ALTER TABLE `notifiche`
+  ADD CONSTRAINT `notifiche_ibfk_1` FOREIGN KEY (`UserPost`) REFERENCES `persone` (`Username`),
+  ADD CONSTRAINT `notifiche_ibfk_2` FOREIGN KEY (`User`) REFERENCES `persone` (`Username`);
+COMMIT;
 
 --
 -- Struttura della tabella `follower`
