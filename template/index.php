@@ -13,26 +13,20 @@ require "../db/bootstrap.php";
     $luogo = $_GET["luogo"];
 
     if (isset($username) && isset($foto) && isset($nome) && isset($cognome) && isset($sesso) && isset($email) && isset($password) && isset($dataNascita) && isset($luogo)){
-        echo "Input presi correttamente";
-    }
-    else {
-         echo "Input non presi correttamente";
-	}
+        $result = $dbh-> checkRegistration($username);
+        if ($result->num_rows > 0) {
+            $msg= "OPS. Qualcun'altro ha questo username. Provane un altro";
+        }       
+        else {
+            $msg= "L'id non esiste nella tabella, puoi inserirlo.";
+             $reg= $dbh->registration($username, $foto, $nome, $cognome, $sesso, $email, $password, $dataNascita, $luogo);
 
-    /*
-   
-    $result = $dbh->checkRegistration($username, $email);
-    if ($result >0){
-        echo "Username o email già presenti nel database";
-        //la registrazione non ha avuto successo
-    }
-    else {
-        $result= $dbh->registration($username,$nome, $cognome, $sesso, $email, $password, $dataNascita, $città);
-        echo "Registrazione avvenuta con successo";
-        //registrazione avvenuta con successo
-    }
-    */
+        }
 
+    }
     
+    require "registration.php";
 
 ?>
+
+<div><?php echo $msg ?></div>

@@ -1,10 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\css",
-    "\\sito",
+    "\\js",
     "\\template"
   ],
-  "SelectedNode": "\\template\\alert.php",
+  "SelectedNode": "\\js\\registration.js",
   "PreviewInSolutionExplorer": false
 }
