@@ -1,3 +1,7 @@
+<?php
+require "../db/database.php";
+require "../db/bootstrap.php";
+?>
 <!DOCTYPE html>
 
 <html lang="it">

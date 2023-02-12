@@ -52,7 +52,7 @@ class DatabaseHelper{
     } 
 
        //funzione che inserisce i dati dell'utente alla registrazione
-<<<<<<< HEAD
+
     public function registration($username,$foto, $nome, $cognome, $sesso, $email, $password, $dataNascita, $città){
         $query = "INSERT INTO persone(username,foto, nome, cognome, sesso, email, password, dataNascita, città) values(?,?,?,?,?,?,?,?,?)";
         $stmt = $this->db->prepare($query);
