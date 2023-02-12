@@ -52,8 +52,15 @@ require "../db/bootstrap.php";
                 <div style="font-size:18px; font-weight:bold;background:none;">
                 <?php echo $alert['UserPost']?>
                 </div>
-            <?php echo $alert['Descrizione']?>
+            <?php echo $alert['Descrizione'];
+                if ($alert['IdPost'] != 0){
+
+                
+            ?>
             <div style="background:none;"><a href='index_post_user.php?post_id=<?php echo $alert['IdPost']; ?>'>Vai al post</a></div>
+            <?php 
+                }
+            ?>
             </div>
             <?php endforeach; ?>
     </main>
