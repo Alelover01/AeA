@@ -1,11 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\css",
     "\\js",
-    "\\php",
     "\\template"
   ],
-  "SelectedNode": "\\css\\registration_style.css",
+  "SelectedNode": "\\js\\registration.js",
   "PreviewInSolutionExplorer": false
 }

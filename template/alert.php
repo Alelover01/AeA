@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="it">
 <head>
@@ -20,7 +20,7 @@
         <button class="hamburger">
             <div class="bar"></div>
         </button>
-        <!-- Menù a comparsa -->
+        <!-- Men� a comparsa -->
         <nav class="aComparsa">
             <ul>
                 <li>
@@ -40,10 +40,8 @@
 
     </aside>
     <main>
-        <p>
-            <!-- Qua ci sarà la gestione delle notiiche -->
-            GESTIONE DELLE NOTIFICHE
-        </p>
+         <div class="alert alert-info"><div style="font-size:18px; font-weight:bold;background:none;">Ale</div> ha iniziato ha seguirti</div>
+         <div class="alert alert-dark"><div style="font-size:18px; font-weight:bold;background:none;">Ale</div> ha commentato un tuo post</div>
     </main>
 </body>
 </html>

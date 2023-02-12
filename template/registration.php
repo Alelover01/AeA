@@ -1,33 +1,3 @@
-<?php
-require "../db/database.php";
-require "../db/bootstrap.php";
-
-if(isset($_POST["btnRegistrati"])){
-    //campi che ci servono 
-    $username = $_POST["txtUsername"];
-    $nome = $_POST["txtNome"];
-    $cognome = $_POST["txtCognome"];
-    $sesso = $_POST["cbSesso"];
-    $email = $_POST["txtEmail"];
-    $password = $_POST["txtPassword"];
-    $dataNascita = $_POST["dtDataNascita"];
-    $città = $_POST["txtCittà"];
-
-    $result = $dbh->checkRegistration($username, $email);
-    if ($result >0){
-        echo "Username o email già presenti nel database";
-        //la registrazione non ha avuto successo
-    }
-    else {
-        $result= $dbh->registration($username,$nome, $cognome, $sesso, $email, $password, $dataNascita, $città);
-        echo "Registrazione avvenuta con successo";
-        //registrazione avvenuta con successo
-    }
-}
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -39,7 +9,7 @@ if(isset($_POST["btnRegistrati"])){
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/registration_style.css">
-    <script src="../js/passCheck.js"></script>
+    <script src="../js/registration.js"></script>
 </head>
 <body>
     <div class="container-fluid p-0 overflow-hidden">
@@ -57,7 +27,9 @@ if(isset($_POST["btnRegistrati"])){
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-12 col-md-6">
-                <form action="#" method="get">
+
+
+                <form action="#" method="post" name="Registrati" >
                     
                     <!-- Campo per Usename -->
                     <div class="form-group row">
