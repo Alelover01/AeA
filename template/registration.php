@@ -145,7 +145,7 @@ require "../db/bootstrap.php";
                         <input onclick="checkPassword()" name="btnRegistrati" class="btn btn-dark col-6" type="button" value="Registrati" />
                     </div>
 
-                    <p class="text-center">Utente registrato? <a href="Login.php">Log In</a> </p>
+                    <p class="text-center">Utente registrato? <a href="../php/login.php">Log In</a> </p>
                 </form>
         </div>
             <div class="col-md-3"></div>
