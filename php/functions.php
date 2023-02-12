@@ -199,4 +199,5 @@ function createPost($request_values)
 			while(file_exists($path.$imageName));
 			$fullPath = $path.$imageName;
 		}
+		}
 ?>

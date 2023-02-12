@@ -72,6 +72,7 @@ class DatabaseHelper{
         return $result;
     } 
 
+
     //funzione per seguire le persone
     public function follow($following,$followed){
         $query = "INSERT INTO `follower` (`following_user_id`,`followed_user_id`) VALUES (?,?)";
@@ -301,6 +302,15 @@ class DatabaseHelper{
     public function getLastIdPost(){
         $query = "SELECT MAX(`post_id`) as `post_id` FROM `post` ORDER BY `post_id`;"; 
         $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function getAlert($Username){
+        $query = "SELECT * FROM notifiche WHERE User = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s',$Username);
         $stmt->execute();
         $result = $stmt->get_result();
 

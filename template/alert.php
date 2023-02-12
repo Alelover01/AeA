@@ -44,9 +44,18 @@ require "../db/bootstrap.php";
 
     </aside>
     <main>
-
-         <div class="alert alert-info"><div style="font-size:18px; font-weight:bold;background:none;">Ale</div> ha iniziato ha seguirti</div>
-         <div class="alert alert-dark"><div style="font-size:18px; font-weight:bold;background:none;">Ale</div> ha commentato un tuo post</div>
+         <?php 
+         $res = $dbh->getAlert($_SESSION['username']);
+         foreach ($res as $alert):
+            ?>
+            <div id="alert" class="alert alert-dark">
+                <div style="font-size:18px; font-weight:bold;background:none;">
+                <?php echo $alert['UserPost']?>
+                </div>
+            <?php echo $alert['Descrizione']?>
+            <div style="background:none;"><a href="#">Vai al post</a></div>
+            </div>
+            <?php endforeach; ?>
     </main>
 </body>
 </html>
