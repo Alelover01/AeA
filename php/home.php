@@ -8,36 +8,45 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <link rel="stylesheet" href="../css/home_style.css" >
         <link rel="stylesheet" href="../css/menu_style.css">
+        <script src="../js/create_post.js"></script>
         <script src="../js/menu.js"></script>
 
     <title>See&Go - Homepage</title>
+   
     <link rel="shortcut icon" href=".../progetto/images/logo.jpg">
   </head>
   <body class="bg-light">
     <header class="py-3 text-white bg-dark">
       <h1 class="font-monospace text-center">See&Go - Homepage</h1>
+      
     </header> 
               <aside>
-                <button class="hamburger">
+                
+              <button class="hamburger">
                     <div class="bar"></div>
                 </button>
-                <!-- Menù a comparsa -->
-                <nav class="aComparsa">
-                    <ul>
-                        <li>
-                            <a href="home.html"><img src="../images/home.png" alt="Icona Home" /></a>
-                        </li>
-                        <li>
-                            <a href="cerca.php"><img src="../images/cerca.png" alt="Icona Cerca" /></a>
-                        </li>
-                        <li>
-                            <a href="alert.html"><img src="../images/notifiche.png" alt="Icona Notifiche" /></a>
-                        </li>
-                        <li>
-                            <a href='index_user_profile.php'><img src="../images/profilo.png" alt="Icona Profilo" /></a>
-                        </li>
-                    </ul>
-                </nav>
+                
+                <div class="div_post_submit">
+                    <input type="button" value="Create New Post" id="btn_create_post" class="btn btn-primary btn-block mt-2 mb-4 fw-bold text-center"/>
+                </div>
+
+                  <!-- Menù a comparsa -->
+                  <nav class="aComparsa">
+                      <ul>
+                          <li>
+                              <a href="home.html"><img src="../images/home.png" alt="Icona Home" /></a>
+                          </li>
+                          <li>
+                              <a href="cerca.php"><img src="../images/cerca.png" alt="Icona Cerca" /></a>
+                          </li>
+                          <li>
+                              <a href="alert.html"><img src="../images/notifiche.png" alt="Icona Notifiche" /></a>
+                          </li>
+                          <li>
+                              <a href='index_user_profile.php'><img src="../images/profilo.png" alt="Icona Profilo" /></a>
+                          </li>
+                      </ul>
+                  </nav>
         
             </aside>
           <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"> -->
@@ -55,6 +64,7 @@
                         <div class="bg-white shadow rounded"> 
                             <div class="im2 px-4 pt-2 pb-4">
                             
+
                                   <div class="media mb-3">
                                     <!-- PRIMO POST -->
                                     <img src="https://i.pinimg.com/236x/13/34/25/133425fd2890d540e536e12a397bbf5c.jpg" class="d-block ui-w-20 rounded-circle" alt="">
@@ -145,6 +155,9 @@
             </div>   
         </div>       
     </main>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="../js/follow-unfollow.js"></script>
   </body>
 </html>
