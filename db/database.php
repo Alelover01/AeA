@@ -30,8 +30,6 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    //funzioni relative ai post da gestire ??
-
    
     //funzione che controlla il login degli utenti
     public function checkLogin($Username, $Password){
