@@ -11,7 +11,7 @@
         <script src="../js/menu.js"></script>
     
 
-    <title>See&GO - Login</title>
+    <title>See&GO - EXPLORE</title>
     <link rel="shortcut icon" href="../images/logo.jpg">
 </head>
 <body style=" background-image: url(../images/images.jpg) ; width: 100%; height: 100%;; background-size: cover; background-repeat: no-repeat;">
@@ -35,7 +35,7 @@
                             <a href="cerca.php"><img src="../images/cerca.png" alt="Icona Cerca" /></a>
                         </li>
                         <li>
-                            <a href="alert.php"><img src="../images/notifiche.png" alt="Icona Notifiche" /></a>
+                            <a href="../template/alert.php"><img src="../images/notifiche.png" alt="Icona Notifiche" /></a>
                         </li>
                         <li>
                             <a href='index_user_profile.php'><img src="../images/profilo.png" alt="Icona Profilo" /></a>
@@ -92,6 +92,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="../js/login.js"></script>
+    <script src="../js/cerca.js"></script>
 </body>
 </html>
