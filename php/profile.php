@@ -118,10 +118,10 @@
                                     foreach($arr_media as $postUser):?>
                                     <div class="col-lg-6 mb-2 pr-lg-1">
                                         <?php if(isset($user_profile) && $user_profile == true):?>
-                                                <a href='index_post_user.php?post_id=<?php echo $postUser['post_id']; ?>'  name='idPost'><img  src=<?php echo $postUser['media_file']?> 
+                                                <a href='index_post_user.php?post_id=<?php echo $postUser['post_id']; ?>&page=2'  name='idPost'><img  src=<?php echo $postUser['media_file']?> 
                                                 style='width: 80%; height: 100%;' class='img-fluid rounded shadow-sm'/></a>
                                         <?php else:?>
-                                                <a href='index_post_other.php?post_id=<?php echo $postUser['post_id'];?>' name='idPost'><img src=<?php echo $postUser['media_file']?>
+                                                <a href='index_post_other.php?post_id=<?php echo $postUser['post_id'];?>&page=2' name='idPost'><img src=<?php echo $postUser['media_file']?>
                                                 style='width: 80%; height: 100%;' class='img-fluid rounded shadow-sm'/></a>
                                         <?php endif; ?>
                                     </div>
@@ -148,6 +148,7 @@
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="../js/follow-unfollow.js"></script>
+        <script src="../js/logout.js"></script>
         
     </body>
 </html>
