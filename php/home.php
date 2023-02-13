@@ -60,7 +60,23 @@
                   require_once '../db/database.php';
                   $userFollowed=$dbh->getFollowed($_SESSION["Username"]);
                   //var_dump($userFollowed);
-                  foreach($userFollowed as $iduser):?>
+                  if(empty($userFollowed)):?>
+                   <div class="py-4 px-0"> 
+                      <div class="bg-white shadow rounded"> 
+                        <div class="im2 px-4 pt-2 pb-4">
+                          <h4 class="font-monospace fw-bold text-center mb-2 mt-2">No user followed! Start now!</h4>
+                        </div>
+                      </div>
+                   </div>
+                   <div class="py-4 px-0"> 
+                      <div class="bg-white shadow rounded"> 
+                        <div class="im2 px-4 pt-2 pb-4">
+                          <img style="width: 60%; height: 60%;" class="img-fluid rounded mx-auto d-block mt-4" src="<?php echo "../images/logo.jpg";?>"/>
+                        </div>
+                      </div>
+                   </div>
+                  <?php else: ?>
+                  <?php foreach($userFollowed as $iduser):?>
               <div class="py-4 px-0"> 
                 <div class="bg-white shadow rounded"> 
                   <div class="im2 px-4 pt-2 pb-4">
@@ -108,6 +124,7 @@
                 </div>
               </div>
             <?php endforeach; ?>
+            <?php endif; ?>
           </div>
         </div>
 
