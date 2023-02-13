@@ -1,18 +1,14 @@
 <?php
-require_once 'db/bootstrap.php';
-
-$result["logouteseguito"] = false;
+require_once '../db/bootstrap.php';
+require_once '../db/database.php'
 
 if(isUserLoggedIn()){
     session_unset();
     session_destroy();
     $result["logouteseguito"] = true;
 }
+    
 
-header('Content-Type: application/json'); //Oppure --> login.php ??
+header('Content-Type: application/json');
 echo json_encode($result);
 ?>
-<!--
-    Da mettere nella home(o nel profilo):
-     <a href="api-logout.php">Logout</a>
--->
