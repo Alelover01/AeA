@@ -11,7 +11,7 @@ class DatabaseHelper{
     }
     
 
-    //Ricerca delle categorie dei post - NON SO SE CI SERVE???
+    //Ricerca delle categorie dei post
     public function getPost_Type(){
         $stmt = $this->db->prepare("SELECT * FROM post_type");
         $stmt->execute();
@@ -30,7 +30,6 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-
     public function getIdPostByPostName($post_type_name){
         $stmt = $this->db->prepare("SELECT post_type_id  FROM post_type WHERE post_type_name =?");
         $stmt->bind_param('i',$post_type_name);
@@ -40,7 +39,36 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-   
+    public function getPostByType($post_type_id){
+        $query ="SELECT *  FROM post WHERE post_type=?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i',$post_type_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+
+    public function deletePost($idPost){
+        $query = "DELETE FROM `post` WHERE `post_id`=?;"; 
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i',$idPost);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result;
+    }
+
+    public function deleteCommentsPost($idPost){
+        $query = "DELETE FROM `comment` WHERE `post_id`=?;"; 
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i',$idPost);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result;
+    }
     //funzione che controlla il login degli utenti
     public function checkLogin($Username, $Password){
         $query = "SELECT * FROM persone WHERE Username = ? AND Password = ?";
@@ -48,12 +76,12 @@ class DatabaseHelper{
         $stmt->bind_param('ss',$Username, $Password);
         $stmt->execute();
         $result = $stmt->get_result();
+
         return $result->fetch_all(MYSQLI_ASSOC);
     } 
 
        //funzione che inserisce i dati dell'utente alla registrazione
-
-    public function registration($username,$foto, $nome, $cognome, $sesso, $email, $password, $dataNascita, $città){
+       public function registration($username,$foto, $nome, $cognome, $sesso, $email, $password, $dataNascita, $città){
         $query = "INSERT INTO persone(username,foto, nome, cognome, sesso, email, password, dataNascita, città) values(?,?,?,?,?,?,?,?,?)";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('sssssssds',$username,$foto, $nome, $cognome, $sesso, $email, $password, $dataNascita, $città);
@@ -71,7 +99,6 @@ class DatabaseHelper{
         $result = $stmt->get_result();
         return $result;
     } 
-
 
     //funzione per seguire le persone
     public function follow($following,$followed){
@@ -219,7 +246,7 @@ class DatabaseHelper{
     public function insertLike($post,$user){
         $query = "INSERT INTO `like` (`post_id`,`user_profile_id`)  VALUES (?,?)"; 
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ss',$post,$user);
+        $stmt->bind_param('is',$post,$user);
         $stmt->execute();
         $result = $stmt->get_result();
 
@@ -229,7 +256,7 @@ class DatabaseHelper{
     public function insertPosts($post,$user, $author, $img, $text, $category){
         $query = "INSERT INTO `like` (`post_id`,`user_profile_id`, ')  VALUES (?,?)"; 
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ss',$post,$user);
+        $stmt->bind_param('is',$post,$user);
         $stmt->execute();
         $result = $stmt->get_result();
 
@@ -243,50 +270,6 @@ class DatabaseHelper{
         $result = $stmt->get_result();
 
         return $result->fetch_all(MYSQLI_ASSOC);
-    }
-
-    public function getCategories(){
-        $stmt = $this->db->prepare("SELECT * FROM categoria");
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
-
-    public function getCategoryById($idcategory){
-        $stmt = $this->db->prepare("SELECT nomecategoria FROM categoria WHERE idcategoria=?");
-        $stmt->bind_param('i',$idcategory);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
-
-    public function getPostByCategory($idcategory){
-        $query = "SELECT idarticolo, titoloarticolo, imgarticolo, anteprimaarticolo, dataarticolo, nome FROM articolo, autore, articolo_ha_categoria WHERE categoria=? AND autore=idautore AND idarticolo=articolo";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param('i',$idcategory);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
-
-    public function updateArticleOfAuthor($idarticolo, $titoloarticolo, $testoarticolo, $anteprimaarticolo, $imgarticolo, $autore){
-        $query = "UPDATE articolo SET titoloarticolo = ?, testoarticolo = ?, anteprimaarticolo = ?, imgarticolo = ? WHERE idarticolo = ? AND autore = ?";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ssssii',$titoloarticolo, $testoarticolo, $anteprimaarticolo, $imgarticolo, $idarticolo, $autore);
-        
-        return $stmt->execute();
-    }
-
-    public function deleteArticleOfAuthor($idarticolo, $autore){
-        $query = "DELETE FROM articolo WHERE idarticolo = ? AND autore = ?";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ii',$idarticolo, $autore);
-        $stmt->execute();
-        var_dump($stmt->error);
-        return true;
     }
 
     public function createPost($post_id, $createByUserId, $mediaFile, $created_time, $caption, $post_type) {
@@ -307,6 +290,16 @@ class DatabaseHelper{
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+    public function getLastIdPostOfUser($user){
+        $query1 = "SELECT `post_id` FROM `post` WHERE created_by_user_id = ? ORDER BY created_time DESC LIMIT 1;";
+        $stmt = $this->db->prepare($query1);
+        $stmt->bind_param('s',$user);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    } 
+
     public function getAlert($Username){
         $query = "SELECT * FROM notifiche WHERE User = ?";
         $stmt = $this->db->prepare($query);
@@ -316,6 +309,6 @@ class DatabaseHelper{
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-}  
-
+    
+}
 ?>
