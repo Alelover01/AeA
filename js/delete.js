@@ -5,7 +5,7 @@ btn_delete.addEventListener("click", function(event){
                 console.log(response.data);
                 if(!response.data) {
                     alert("ERRORE! RIPROVA!");
-                    window.location.reload();   
+                   window.location.reload();   
                 }else{
                 window.location.pathname = './AeA-main/php/index_user_profile.php';  
                 }
