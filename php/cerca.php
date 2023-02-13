@@ -50,77 +50,28 @@
         <div class="container-fluid p-0 overflow-hidden">
             <div class="py-4 px-4"> 
                 <div class="row align-items-start ">
+                    <?php  require_once '../db/bootstrap.php';
+                            $categories=$dbh->getPost_Type();
+                            //var_dump($categories);
+                            foreach($categories as $type_cat):?>
+                            <?php //var_dump($type_cat)?>
                     <div class="col-md-4">
-                                            <div class="bg-image card shadow-1-strong" style="background-image: url('https://static.nationalgeographic.it/files/styles/image_3200/public/gettyimages-660629130_1.jpg?w=1600');">
-                                                <div class="d-grid gap-2 col-6 mx-auto">
-                                                    <button class="btn btn-outline-dark btn-lg btn-block mt-2 mb-2 fw-bold text-center" type="button">ITINERARI</button>
-                                                </div>
-                                            </div>
-                                        <!-- <div class="col-6 ">
-                                            <a href="#" class="btn btn-outline-dark btn-sm btn-block mt-3 mb-10 fw-bold text-center">ITINERARI</a> 
-                                            </div> -->
-                        <!-- <div class="box-footer no-padding">
-                        <ul class="nav nav-stacked">
-                            <li><a href="#">Posts <span class="pull-right badge bg-blue">31</span></a></li>
-                            
-                        </ul>
-                        </div> -->
-                    </div>
-                    
-                    
-                    <div class="col-md-4">
-                    <div class="box box-widget widget-user-2">
-                        <div class="bg-image card shadow-1-strong" style="background-image: url('https://www.labsus.org/wp-content/uploads/2018/05/architecture-3095716_1920-1140x760.jpg'); width: 100%; height: 100%;">
-                            <div class="d-grid gap-2 col-6 mx-auto">
-                                <button class="btn btn-outline-dark btn-lg btn-block mt-2 mb-2 fw-bold text-center" type="button">FOTO LUOGHI</button>
+                        <div class="box box-widget widget-user-2">
+                            <div class="bg-image card shadow-1-strong" style="background-image: url('https://www.labsus.org/wp-content/uploads/2018/05/architecture-3095716_1920-1140x760.jpg'); width: 100%; height: 100%;">
+                                <div class="d-grid gap-2 col-6 mx-auto">
+                                    <a href='postCategoria.php?id=<?php echo $type_cat["post_type_id"];?>'>
+                                        <button class="btn btn-outline-dark btn-lg btn-block mt-2 mb-2 fw-bold text-center" id="<?php echo $type_cat["post_type_id"];?>" name="btnCategory" type="button">
+                                        <?php echo $type_cat["post_type_name"];?></button>
+                                    </a> 
+                                </div>
                             </div>
                         </div>
                     </div>
-                    </div>
-                    
-                    <div class="col-md-4">
-                        <div class="box box-widget widget-user-2">
-                        <div class="bg-image card shadow-1-strong" style="background-image: url('https://i.etsystatic.com/29590405/r/il/4fc2f5/3116691901/il_1588xN.3116691901_idhq.jpg');">
-                            <div class="d-grid gap-2 col-6 mx-auto">
-                                <button class="btn btn-outline-dark btn-lg btn-block mt-2 mb-2 fw-bold text-center" type="button">CIBO</button>
-                                </div>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="w-100"></div>
-                    <div class="col-md-4">
-                        <div class="box box-widget widget-user-2">
-                        <div class="bg-image card shadow-1-strong" style="background-image: url('https://www.impulsemag.it/wp-content/uploads/2017/01/look-formale-elegante.jpeg');">
-                            <div class="d-grid gap-2 col-6 mx-auto">
-                                <button class="btn btn-outline-dark btn-lg btn-block mt-2 mb-2 fw-bold text-center" type="button">OUTFIT</button>
-                                </div>
-                        </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="box box-widget widget-user-2">
-                        <div class="bg-image card shadow-1-strong" style="background-image: url('https://londonita.com/wp-content/uploads/2020/02/Bus-n-9-First-London-Routemaster-min.jpg');">
-                            <div class="d-grid gap-2 col-6 mx-auto">
-                                <button class="btn btn-outline-dark btn-lg btn-block mt-2 mb-2 fw-bold text-center" type="button">TIPS MEZZI</button>
-                                </div>
-                        </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="box box-widget widget-user-2">
-                        <div class="bg-image card shadow-1-strong" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Rockies_in_the_morning.jpg/1200px-Rockies_in_the_morning.jpg');">
-                            <div class="d-grid gap-2 col-6 mx-auto">
-                                <button class="btn btn-outline-dark btn-lg btn-block mt-2 mb-2 fw-bold text-center" type="button">ROAD TRIP</button>
-                                </div>
-                        </div>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>
-
+        </div>
         <div class="py-4 px-4"> 
             <div class="d-flex align-items-center justify-content-between mb-3"> 
                 <h5 class="mb-0">Photos recommended</h5>
