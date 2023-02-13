@@ -55,9 +55,9 @@
                         </div>
             </div>
         </div>
-        <div class="col-md-8 offset-md-2 col-lg-8 offset-lg-2 div-wrapper d-flex justify-content-center align-items-center">
+       
           <div class="container-fluid p-0 overflow-hidden">
-            <div class="card shadow " style="border-radius: 1rem;">
+           
                 <div class="py-4 px-0"> 
                       <div class="bg-white shadow rounded"> 
                             <div class="im2 px-4 pt-2 pb-4">
@@ -85,7 +85,7 @@
                  </div>
             </div>
          </div>
-    </div>
+   
 </section> 
          <!-- FOOTER -->
          <div class="row">
