@@ -3,7 +3,7 @@
 <html lang="it">
 <head>
     <link rel="shortcut icon" href="../images/logo.jpg">
-    <title> See & Go - Create Post </title>
+    <title> See & Go - Edit Profile</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -18,7 +18,7 @@
             <div class="col-12">
                 <header>
                     <!-- Vedere lo stile da mettere al titolo-->
-                    <h1 class="display-1 font-monospace fw-bold text-center"> See & Go - Create Post </h1>
+                    <h1 class="display-1 font-monospace fw-bold text-center"> See & Go - Edit Profile </h1>
                 </header>
             </div>
             
@@ -27,55 +27,53 @@
             <div class="col-md-3"></div>
             <div class="col-12 col-md-6">
 
-
-
-                <form method="post" action="editProfile.php">
-                <!-- Campo per Categoria-->
-                    <div class="form-group row">
-                        <div class="col-md-2"></div>
-                        <label class="col-md-3" for="lbCategoria">Edit:</label>
-                        <div class="form-group col-md-6">
-                        <select class="form-control" name="cbCategoria" id="cbCategoria" required>
-                                <!-- Fare il cotrollo che questo input sia sempre selezionato -->
-                                <option value="0" selected>Click to select one</option>
-                                <option value="1">Edit your photo profile</option>
-                                <option value="2">Edit your city</option>
-                                <option value="3">Change your password</option>
-                            </select>
-                        </div>
-                    </div>
-                    <!-- Button dell'edit-->
-
                     <?php 
                         $action = $_POST["cbCategoria"];
                         echo "Action choosen is:".$action;
-                    ?>
+                        if ($action == 1){ ?>
+                        <!-- Campo per Foto -->
+                            <div class="form-group row">
+                                <div class="col-md-2"></div>
+                                <label class="col-md-3" for="lbFotoCaricare">Photo Profile:</label>
+                                <div class="form-group col-md-6">
+                                    <input type="file" class="form-control-file" id="btnFile" name="btnFile" accept=".jpg,.png,.jpeg">
+                                </div>
+                            </div>
+                     <?php 
+                        //da metetre update giusto
+                        }
+                        if($action == 2){ ?>
+                        <!-- Campo per il nuovo Luogo-->
+                            <div class="form-group row">
+                                <div class="col-md-2"></div>
+                                <label class="col-md-3" for="lbCity">New City:</label>
+                                <div class="form-group col-md-6">
+                                    <input id="lbCity" name="txtCity" class="form-control" placeholder="New York" type="text" required />
+                                </div>
+                            </div>
+                     <?php
+                        }
+                        if($action == 3){ ?>
+                        <!-- Campo per Didascalia-->
+                            <div class="form-group row">
+                                <div class="col-md-2"></div>
+                                <label class="col-md-3" for="lbPass">New Password:</label>
+                                <div class="form-group col-md-6">
+                                    <input id="lbPass" name="txtPass" class="form-control" placeholder="Min. 7 char." type="password" required />
+                                </div>
+                            </div>
+                     <?php
+                        }
+                      ?>
+                    
 
-
-                    <!-- Campo per Foto -->
-                    <div class="form-group row">
-                        <div class="col-md-2"></div>
-                        <label class="col-md-3" for="lbFotoCaricare">Foto da caricare:</label>
-                        <div class="form-group col-md-6">
-                            <input type="file" class="form-control-file" id="btnFile" name="btnFile" accept=".jpg,.png,.jpeg">
-                        </div>
-                    </div>
-
-                    <!-- Campo per Didascalia-->
-                    <div class="form-group row">
-                        <div class="col-md-2"></div>
-                        <label class="col-md-3" for="lbDidascalia">Didascalia:</label>
-                        <div class="form-group col-md-6">
-                            <input id="txtDidascalia" name="txtDidascalia" class="form-control" placeholder="Didascalia" type="text" required />
-                        </div>
-                    </div>
 
                     
                     <!-- Bottone che invia tutto -->
                     <div class="form-group">
                     <button type="submit" id="btn_change" name="btn_pubblica" class="btn text-white bg-dark btn-block">Change!</button>
                     </div>
-                    <button type="button" class="btn text-white bg-dark btn-block"><a class="text-white text-decoration-none" href="home.php">Back</a></button>
+                    <button type="button" class="btn text-white bg-dark btn-block"><a class="text-white text-decoration-none" href="profile.php">Back</a></button>
                 </form>
         </div>
             <div class="col-md-3"></div>

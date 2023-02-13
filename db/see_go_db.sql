@@ -48,10 +48,9 @@ CREATE TABLE `persone` (
   `Cognome` char(22) NOT NULL,
   `Sesso` char(22) NOT NULL,
   `Email` char(22) NOT NULL,
-  `Password` char(22) NOT NULL COMMENT 'Campo da usare per fare il check con ripeti password',
-  --`Paese` char(45) NOT NULL,
+  `Password` char(22) NOT NULL,
   `DataNascita` date NOT NULL,
-  `Città` char(22) NOT NULL, COMMENT 'Andrà nel profilo'
+  `Città` char(22) NOT NULL,
   `Foto` char(22)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 -- --------------------------------------------------------
