@@ -18,7 +18,10 @@
     </head>
     <body>
         <header >
-            <h1 class="font-monospace fw-bold text-center pt-2 pb-2">See&Go</h1>
+            <div class="row ">
+                <h1 class="col-11 font-monospace fw-bold text-center pt-2 pb-2">See&Go</h1>
+                <button id="btn_logout" class="btn text-white font-monospace float-end col-1">Logout</button>
+            </div>
         </header>
 
         <aside>
@@ -35,7 +38,7 @@
                         <a href="cerca.php"><img src="../images/cerca.png" alt="Icona Cerca" /></a>
                     </li>
                     <li>
-                        <a  href="alert.php"><img src="../images/notifiche.png" alt="Icona Notifiche" /></a>
+                        <a  href="../template/alert.php"><img src="../images/notifiche.png" alt="Icona Notifiche" /></a>
                     </li>
                     <li>
                         <a  href='index_user_profile.php'><img  src="../images/profilo.png" alt="Icona Profilo" /></a>
@@ -60,7 +63,7 @@
                                     <li class="list-inline-item text-center" >
                                         <h4 class="font-italic mt-2 mb-0" ><?php echo $templateParams["profile"]["Nome"]?> <?php echo $templateParams["profile"]["Cognome"]?></h4>
                                         <p id="username" class="font-italic mb-0">@<?php echo $templateParams["profile"]["Username"]?></p>
-                                        <p class="font-italic mb-0"><?php echo $templateParams["profile"]["Città"]?>, <?php echo $templateParams["profile"]["Paese"]?></p>
+                                        <p class="font-italic mb-0"><?php echo $templateParams["profile"]["Città"]?></p>
                                     </li>
                                     
                                 </ul>
@@ -98,25 +101,15 @@
                                     </ul> 
                                 </div> 
                             </div>
-                            
-                                <!--<div class="px-4 py-3"> 
-                                    <h5 class="mb-0">About</h5> 
-                                    <div class="p-4 rounded shadow-sm bg-light"> 
-                                        <p class="font-italic mb-0">Web Developer</p> 
-                                        <p class="font-italic mb-0">Lives in New York</p> 
-                                        <p class="font-italic mb-0">Photographer</p> 
-                                    </div> 
-                                </div>--> 
-                            <div class="py-4 px-4"> 
-                                <div class="d-flex align-items-center justify-content-between mb-3"> 
-                                    <h5 class="mb-0">Photos</h5>
-                                    <a href="#" class="btn btn-link text-muted">Show all</a> 
+                            <div class="py-4  me-1 ms-5"> 
+                                <div class="d-flex align-items-center justify-content-between mb-3 mx-auto"> 
+                                    <h5 class="mb-0">Photos</h5> 
                                 </div> 
                                 <div class="row"> 
                                 <?php 
                                     $arr_media = $dbh->getFotoPost($templateParams["profile"]["Username"]);
                                     foreach($arr_media as $postUser):?>
-                                    <div class="col-lg-6 mb-2 pr-lg-1">
+                                    <div class="col-6 mb-2 ">
                                         <?php if(isset($user_profile) && $user_profile == true):?>
                                                 <a href='index_post_user.php?post_id=<?php echo $postUser['post_id']; ?>&page=2'  name='idPost'><img  src=<?php echo $postUser['media_file']?> 
                                                 style='width: 80%; height: 100%;' class='img-fluid rounded shadow-sm'/></a>
@@ -139,7 +132,6 @@
             <div class="col-12 mt-3">
                     <footer class="py-3 text-white bg-dark">
                         <p class="font-monospace text-center">See&Go</p>
-                        <button id="btn_logout">Logout</button>
                     </footer>   
             </div>   
         </div> 
