@@ -18,8 +18,9 @@ require "../db/bootstrap.php";
     <script src="../js/menu.js"></script>
 </head>
 <body>
-    <h1 class="display-1 font-monospace fw-bold text-center"> See & Go - Notifiche </h1>
-
+    <header class="py-3 text-white bg-dark">
+      <h1 class="font-monospace text-center">See&Go - Alerts</h1>
+    </header> 
     <aside>
         <button class="hamburger">
             <div class="bar"></div>
