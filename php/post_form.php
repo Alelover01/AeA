@@ -11,19 +11,22 @@
     <link rel="stylesheet" href="../css/registration_style.css">
 </head>
 <body>
-    <div class="container-fluid p-0 overflow-hidden">
-        <!--Titolo della pagina-->
+<header class="py-2  bg-dark mb-5">
+      <h1 class="font-monospace text-white fw-bold text-center">See&Go - Create Post</h1>
+    </header>
+    <!--<div class="container-fluid p-0 overflow-hidden">
+        Titolo della pagina
         <div class="row">
             <div class="col-12">
                 <header>
-                    <!-- Vedere lo stile da mettere al titolo-->
-                    <h1 class="display-1 font-monospace fw-bold text-center"> See & Go - Create Post </h1>
+                     Vedere lo stile da mettere al titolo
+                    <h1 class="display-1 font-monospace fw-bold text-center"> See&Go - Create Post </h1>
                 </header>
             </div>
             
-        </div>
+        </div>-->
         <!-- Form da mettere per bene-->
-        <div class="row">
+        <div class="row ">
             <div class="col-md-3"></div>
             <div class="col-12 col-md-6">
                 <form method="post" enctype="multipart/form-data">
@@ -31,7 +34,7 @@
                     <!-- Campo per Foto -->
                     <div class="form-group row">
                         <div class="col-md-2"></div>
-                        <label class="col-md-3" for="lbFotoCaricare">Foto da caricare:</label>
+                        <label class="col-md-3" for="lbFotoCaricare">Upload image:</label>
                         <div class="form-group col-md-6">
                             <input type="file" class="form-control-file" id="btnFile" name="btnFile" accept=".jpg,.png,.jpeg">
                         </div>
@@ -40,25 +43,25 @@
                     <!-- Campo per Didascalia-->
                     <div class="form-group row">
                         <div class="col-md-2"></div>
-                        <label class="col-md-3" for="lbDidascalia">Didascalia:</label>
+                        <label class="col-md-3" for="lbDidascalia">Caption:</label>
                         <div class="form-group col-md-6">
-                            <input id="txtDidascalia" name="txtDidascalia" class="form-control" placeholder="Didascalia" type="text" required />
+                            <input id="txtDidascalia" name="txtDidascalia" class="form-control" placeholder="Caption" type="text" required />
                         </div>
                     </div>
 
                     <!-- Campo per Categoria-->
                     <div class="form-group row">
                         <div class="col-md-2"></div>
-                        <label class="col-md-3" for="lbCategoria">Categoria:</label>
+                        <label class="col-md-3" for="lbCategoria">Category:</label>
                         <div class="form-group col-md-6">
                         <select class="form-control" name="cbCategoria" id="cbCategoria" required>
                                 <!-- Fare il cotrollo che questo input sia sempre selezionato -->
-                                <option value="0" selected>Clicca per sceglierne uno</option>
-                                <option value="Itinerario">Itinerario</option>
-                                <option value="Foto luoghi">Foto luoghi</option>
-                                <option value="Cibo">Cibo</option>
+                                <option value="0" selected>Click to select one</option>
+                                <option value="Itinerario">Itinerary</option>
+                                <option value="Foto luoghi">Landscapes</option>
+                                <option value="Cibo">Food</option>
                                 <option value="Outfit">Outfit</option>
-                                <option value="Tips mezzi">Tips mezzi</option>
+                                <option value="Tips mezzi">Transport tips</option>
                                 <option value="Road Trip">Road Trip</option>
                             </select>
                         </div>
@@ -66,7 +69,7 @@
 
                     <!-- Bottone che invia tutto -->
                     <div class="form-group">
-                    <button type="submit" id="btn_pubblica" name="btn_pubblica" class="btn text-white bg-dark btn-block">Pubblica!</button>
+                    <button type="submit" id="btn_pubblica" name="btn_pubblica" class="btn text-white bg-dark btn-block">Publish!</button>
                     </div>
                     <button type="button" class="btn text-white bg-dark btn-block"><a class="text-white text-decoration-none" href="home.php">Back</a></button>
                 </form>
