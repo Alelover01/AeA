@@ -5,7 +5,7 @@ function checkPassword() {
 
     if (pass.length > 6) {
         if (pass == ripetiPass) {
-            msg.textContent = "Password corrette";
+            msg.textContent = "Password Matched";
             msg.style.backgroundColor = "#1dcd59";
             let username = document.getElementById("lbUsername").value;
             let foto = document.getElementById("btnFile").value;
@@ -14,18 +14,18 @@ function checkPassword() {
             let sesso = document.getElementById("lbSesso").value;
             let email = document.getElementById("lbEmail").value;
             let dataNascita = document.getElementById("lbDataNascita").value;
-            let luogo = document.getElementById("lbCittà").value;
+            let luogo = document.getElementById("lbLuogo").value;
 
             //funzione che controlla che ogni elemento inserito nella pagina non sia vuoto
             checkInput(username, foto, nome, cognome, sesso, email, pass, dataNascita, luogo);
         }
         else {
-            msg.textContent = "Le password non coincidono";
+            msg.textContent = "Passwords doesn't match";
             msg.style.backgroundColor = "#ff4d4d";
         }
     }
     else {
-        alert("La password deve avere minimo 7 caratteri");
+        alert("The password must be at least long 7 characters");
         msg.textContent = "";
         msg.style.backgroundColor = "white";
     }
@@ -39,6 +39,6 @@ function checkInput(username, foto, nome, cognome, sesso, email, pass, dataNasci
         window.location.href = url;
     }
     else {
-        alert("Attenzione vanno inserti tutti i campi!");
+        alert("Failed! You didn't write all the fields");
     }
 }
