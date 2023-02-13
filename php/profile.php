@@ -20,7 +20,9 @@
         <header >
             <div class="row ">
                 <h1 class="col-11 font-monospace fw-bold text-center pt-2 pb-2">See&Go</h1>
+                <?php if($templateParams["profile"]["Username"]==$_SESSION["Username"]): ?>
                 <button id="btn_logout" class="btn text-white font-monospace float-end col-1">Logout</button>
+                <?php endif; ?>
             </div>
         </header>
 
@@ -75,6 +77,7 @@
                                 <div class="col-6 ">
                                 <form method="POST">
                                 <?php if(isset($user_profile) && $user_profile == true): ?>
+                                    
                                     <form method="post">
                                     <!-- Campo per Scegliere cosa cambiare-->
                                         <div class="form-group row">
