@@ -19,11 +19,14 @@
             <?php elseif($_SESSION["page"]==2):?>    
                 <?php if($templateParams["profile"]["Username"]==$_SESSION["Username"]): ?>
                     <button type="button" class="btn text-white bg-dark btn-block"><a class="text-white text-decoration-none" href="index_user_profile.php">Back</a></button>
+                    <button type="button" id="btn_delete" name="btn_delete" class="btn text-white bg-dark btn-block">Delete</button>
                 <?php else:?>
                     <button type="button" class="btn bg-dark btn-block"><a class="text-white text-decoration-none" href="index_someone_profile.php">Back</a></button>
-                <?php endif; ?>    
+                <?php endif; ?>  
+            <?php else: ?>
+                <button type="button" class="btn text-white bg-dark btn-block"><a class="text-white text-decoration-none" href="cerca.php">Back</a></button> 
             <?php endif; ?>
-            <button type="button" id="btn_delete" name="btn_delete" class="btn text-white bg-dark btn-block">Delete</button>
+            
             </div>
         </header>
         <main>
@@ -46,7 +49,7 @@
                                 <img src=<?php echo $templateParams["post"]["media_file"]?> style="width: 80%; height: 100%;" alt="" class="img-fluid rounded shadow-sm">
                             </div>
                             <div class="row mx-5 px-5 mb-3"> 
-                                <div class="col-12 text-center"><button  id="btn_like" name="btn_like" type="button" data-post-id="<?php echo $_SESSION["post_id"];?>"class="btn btn-trasparent mb-2  d-inline-block text-muted text-center">
+                                <div class="col-12 text-center"><button  id="btn_like" name="btn_like" type="button" data-post-id="<?php echo $_SESSION["post_id"];?>" class="btn btn-trasparent mb-2  d-inline-block text-muted text-center">
                                     <i class="align-middle ">
                                       <strong name="num" class="num"><?php echo $templateParams["post"]["numLikes"]?></strong>.Likes</i>
                                 </button></div>
