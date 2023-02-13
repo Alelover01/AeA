@@ -48,7 +48,7 @@
                     <!-- Campo per Foto Profilo-->
                     <div class="form-group row">
                         <div class="col-md-2"></div>
-                        <label class="col-md-3" for="lbFotoProfilo">FotoProfilo:</label>
+                        <label class="col-md-3" for="lbFotoProfilo">Photo Profile:</label>
                         <div class="form-group col-md-6">
                             <input type="file" class="form-control-file" id="btnFile" name="btnFile" accept=".jpg,.png,.jpeg">
                         </div>
@@ -57,32 +57,31 @@
                     <!-- Campo per Nome-->
                     <div class="form-group row">
                         <div class="col-md-2"></div>
-                        <label class="col-md-3" for="lbNome">Nome:</label>
+                        <label class="col-md-3" for="lbNome">Name:</label>
                         <div class="form-group col-md-6">
-                            <input id="lbNome" name="txtNome" class="form-control" placeholder="Nome" type="text" required />
+                            <input id="lbNome" name="txtNome" class="form-control" placeholder="Name" type="text" required />
                         </div>
                     </div>
 
                     <!-- Campo per Cognome-->
                     <div class="form-group row">
                         <div class="col-md-2"></div>
-                        <label class="col-md-3" for="lbCognome">Cognome:</label>
+                        <label class="col-md-3" for="lbCognome">Surname:</label>
                         <div class="form-group col-md-6">
-                            <input id="lbCognome" name="txtCognome" class="form-control" placeholder="Cognome" type="text" required />
+                            <input id="lbCognome" name="txtCognome" class="form-control" placeholder="Surname" type="text" required />
                         </div>
                     </div>
 
                     <!-- Campo per Sesso-->
                     <div class="form-group row">
                         <div class="col-md-2"></div>
-                        <label class="col-md-3" for="lbSesso">Sesso:</label>
+                        <label class="col-md-3" for="lbSesso">Gender:</label>
                         <div class="form-group col-md-6">
                             <select class="form-control" name="cbSesso" id="lbSesso" required>
-                                <!-- Fare il cotrollo che questo input sia sempre selezionato -->
-                                <option value="0" selected>Clicca per sceglierne uno</option>
+                                <option value="0" selected>Click to choose one</option>
                                 <option value="femmina">F</option>
                                 <option value="maschio">M</option>
-                                <option value="nonSpefificato">Preferisco non specificarlo</option>
+                                <option value="nonSpefificato">Don't want to say</option>
                             </select>
                         </div>
                     </div>
@@ -102,17 +101,16 @@
                         <div class="col-md-2"></div>
                         <label class="col-md-3" for="lbPassword">Password:</label>
                         <div class="form-group col-md-6">
-                            <input id="lbPassword" name="txtPassword" class="form-control" placeholder="Password minimo 7 caratteri" type="password" required />
+                            <input id="lbPassword" name="txtPassword" class="form-control" placeholder="Min. 7 characters" type="password" required />
                         </div>
                     </div>
 
                     <!-- Campo per Ripeti Password-->
                     <div class="form-group row">
                         <div class="col-md-2"></div>
-                        <label class="col-md-3" for="lbRipetiPass">Ripeti Password:</label>
+                        <label class="col-md-3" for="lbRipetiPass">Repeat Password:</label>
                         <div class="form-group col-md-6">
-                            <!-- Disabilitata e poi da abilitare quando viene emmessa la password -->
-                            <input id="lbRipetiPass" name="txtRipetiPass" class="form-control" placeholder="Ripeti Password" type="password" required />
+                            <input id="lbRipetiPass" name="txtRipetiPass" class="form-control" placeholder="Repeat Password" type="password" required />
                             <div id="msgPassword"></div>
                         </div>
                     </div>
@@ -120,27 +118,27 @@
                     <!-- Campo per Data Di Nascita-->
                     <div class="form-group row">
                         <div class="col-md-2"></div>
-                        <label class="col-md-3" for="lbDataNascita">Data Di Nascita:</label>
+                        <label class="col-md-3" for="lbDataNascita">Date of Birthday:</label>
                         <div class="form-group col-md-6">
                             <input class="form-control" type="date" id="lbDataNascita" name="dtDataNascita" required />
                         </div>
                     </div>
 					
-					<!-- Campo per Città-->
+					<!-- Campo per Cittï¿½-->
                     <div class="form-group row">
                         <div class="col-md-2"></div>
-                        <label class="col-md-3" for="lbCittà">Luogo:</label>
+                        <label class="col-md-3" for="lbLuogo">City:</label>
                         <div class="form-group col-md-6">
-                            <input id="lbCittà" name="txtCittà" class="form-control" placeholder="Milan" type="text" required />
+                            <input id="lbLuogo" name="txtLuogo" class="form-control" placeholder="Milan" type="text" required />
                         </div>
                     </div>
 
                     <!-- Bottone che invia tutto -->
                     <div class="form-group">
-                        <input onclick="checkPassword()" name="btnRegistrati" class="btn btn-dark col-6" type="button" value="Registrati" />
+                        <input onclick="checkPassword()" name="btnRegistrati" class="btn btn-dark col-6" type="button" value="Register" />
                     </div>
 
-                    <p class="text-center">Utente registrato? <a href="../php/login.php">Log In</a> </p>
+                    <p class="text-center">Already Logged In? <a href="../php/login.php">Log In</a> </p>
                 </form>
         </div>
             <div class="col-md-3"></div>

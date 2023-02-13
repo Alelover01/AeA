@@ -15,10 +15,10 @@ require "../db/bootstrap.php";
     if (isset($username) && isset($foto) && isset($nome) && isset($cognome) && isset($sesso) && isset($email) && isset($password) && isset($dataNascita) && isset($luogo)){
         $result = $dbh-> checkRegistration($username);
         if ($result->num_rows > 0) {
-            $msg= "OPS. Qualcun'altro ha questo username. Provane un altro";
+            $msg= "Registration failed ! Someone already has your nickname!";
         }       
         else {
-            $msg= "L'id non esiste nella tabella, puoi inserirlo.";
+            $msg= "Registration done sucessfully";
              $reg= $dbh->registration($username, $foto, $nome, $cognome, $sesso, $email, $password, $dataNascita, $luogo);
 
         }
