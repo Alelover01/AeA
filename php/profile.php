@@ -75,7 +75,22 @@
                                 <div class="col-6 ">
                                 <form method="POST">
                                 <?php if(isset($user_profile) && $user_profile == true): ?>
-                                    <a id="" class="btn btn-outline-dark btn-sm btn-block mt-3 mb-1 fw-bold text-center">Edit</a>
+                                    <form method="post">
+                                    <!-- Campo per Scegliere cosa cambiare-->
+                                        <div class="form-group row">
+                                            <div class="col-md-2"></div>
+                                            <label class="col-md-3" for="lbCategoria">Edit:</label>
+                                            <div class="form-group col-md-6">
+                                            <select class="form-control" name="cbCategoria" id="cbCategoria" required>
+                                                    <option value="0" selected>Click to select one</option>
+                                                    <option value="1">Edit your photo profile</option>
+                                                    <option value="2">Edit your city</option>
+                                                    <option value="3">Change your password</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <a onclick="edit()" class="btn btn-outline-dark btn-sm btn-block mt-3 mb-1 fw-bold text-center">Edit</a>
+                                    </form>
                                 <?php elseif(isset($user_profile) && $user_profile == false && !$templateParams["profile"]["followed"]): ?>
                                     <a id="btn_follow" name="follow" class="btn btn-outline-dark btn-sm btn-block mt-3 mb-1 fw-bold text-center">Follow Now</a>
                                 <?php else: ?>
@@ -141,6 +156,7 @@
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="../js/follow-unfollow.js"></script>
         <script src="../js/logout.js"></script>
+        <script src="../js/edit.js"></script>
         
     </body>
 </html>

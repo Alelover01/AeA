@@ -1,4 +1,7 @@
-
+<?php
+require "../db/database.php";
+require "../db/bootstrap.php";
+?>
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -28,7 +31,7 @@
             <div class="col-12 col-md-6">
 
                     <?php 
-                        $action = $_POST["cbCategoria"];
+                        $action = $_GET["action"];
                         echo "Action choosen is:".$action;
                         if ($action == 1){ ?>
                         <!-- Campo per Foto -->
@@ -66,12 +69,9 @@
                         }
                       ?>
                     
-
-
-                    
                     <!-- Bottone che invia tutto -->
                     <div class="form-group">
-                    <button type="submit" id="btn_change" name="btn_pubblica" class="btn text-white bg-dark btn-block">Change!</button>
+                    <button type="submit" id="btn_change" name="btn_change" class="btn text-white bg-dark btn-block">Change!</button>
                     </div>
                     <button type="button" class="btn text-white bg-dark btn-block"><a class="text-white text-decoration-none" href="profile.php">Back</a></button>
                 </form>
