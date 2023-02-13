@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -30,7 +31,8 @@
 
                     <?php 
                         $action = $_GET["action"];
-                        if ($action == 1){ ?>
+                        if ($action == 1){ 
+                            $function="changeFoto()";?>
                         <!-- Campo per Foto -->
                             <div class="form-group row">
                                 <div class="col-md-2"></div>
@@ -42,7 +44,8 @@
                      <?php 
                         //da metetre update giusto
                         }
-                        if($action == 2){ ?>
+                        if($action == 2){ 
+                            $function="changeCity()";?>
                         <!-- Campo per il nuovo Luogo-->
                             <div class="form-group row">
                                 <div class="col-md-2"></div>
@@ -53,7 +56,8 @@
                             </div>
                      <?php
                         }
-                        if($action == 3){ ?>
+                        if($action == 3){ 
+                            $function="changePassword()";?>
                         <!-- Campo per Didascalia-->
                             <div class="form-group row">
                                 <div class="col-md-2"></div>
@@ -68,7 +72,7 @@
                     
                     <!-- Bottone che invia tutto -->
                     <div class="form-group">
-                    <button on click="change()"type="submit" id="btn_change" name="btn_change" class="btn text-white bg-dark btn-block">Change!</button>
+                    <button onclick="<?php echo $function;?>" type="submit" id="btn_change" name="btn_change" class="btn text-white bg-dark btn-block">Change!</button>
                     </div>
                     <button type="button" class="btn text-white bg-dark btn-block"><a class="text-white text-decoration-none" href="index_user_profile.php">Back</a></button>
                 </form>
