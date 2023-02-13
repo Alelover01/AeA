@@ -2,22 +2,28 @@
 require "../db/database.php";
 require "../db/bootstrap.php";
 
-    $foto = $_GET["newFoto"];
-    $pass = $_GET["newPass"];
-    $luogo = $_GET["newCity"];
+    $action=$_GET["action"];
+    
     $msg = '';
     
-    if (isset($foto)){
-        $res= $dbh->updateFoto($foto,$_SESSION['Username']);
+    if($action==1){
+        $foto = $_GET["foto"];
+        $uploadDirectory = "../images/";
+		$uploadFileName = $uploadDirectory . $foto;
+        $res= $dbh->updateFoto($uploadFileName,$_SESSION['Username']);
         $msg = "Updated photo successfull";
     }
-    if (isset($pass)){
-        $res= $dbh->updatePass($pass,$_SESSION['Username']);
-        $msg = "Updated pass successfull";
-    }
-    if (isset($luogo)){
+
+    if ($action==2){
+        $luogo = $_GET["city"];
         $res= $dbh->updateLuogo($luogo,$_SESSION['Username']);
         $msg = "Updated city successfull";
+    }
+
+    if ($action==3){
+        $pass = $_GET["pass"];
+        $res= $dbh->updatePass($pass,$_SESSION['Username']);
+        $msg = "Updated pass successfull";
     }
 
     if ($msg == ''){
