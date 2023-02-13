@@ -43,51 +43,18 @@ CREATE TABLE `notifiche` (
 --
 
 CREATE TABLE `persone` (
-   `Username` char(22) NOT NULL,
-  `foto` varchar(255) NOT NULL,
+  `Username` char(22) NOT NULL COMMENT 'Indice Tabella in modo da avere username diversi ogni volta',
   `Nome` char(22) NOT NULL,
   `Cognome` char(22) NOT NULL,
   `Sesso` char(22) NOT NULL,
   `Email` char(22) NOT NULL,
-  `Password` char(22) NOT NULL,
-  `DataNascita` varchar(22) DEFAULT NULL,
-  `Città` char(22) NOT NULL
+  `Password` char(22) NOT NULL COMMENT 'Campo da usare per fare il check con ripeti password',
+  --`Paese` char(45) NOT NULL,
+  `DataNascita` date NOT NULL,
+  `Città` char(22) NOT NULL, COMMENT 'Andrà nel profilo'
+  `Foto` char(22)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 -- --------------------------------------------------------
--- Indici per le tabelle `notifiche`
---
-ALTER TABLE `notifiche`
-  ADD PRIMARY KEY (`IdAlert`),
-  ADD KEY `UserPost` (`UserPost`),
-  ADD KEY `User` (`User`);
-
---
--- Indici per le tabelle `persone`
---
-ALTER TABLE `persone`
-  ADD PRIMARY KEY (`Username`);
-
---
--- AUTO_INCREMENT per le tabelle scaricate
---
-
---
--- AUTO_INCREMENT per la tabella `notifiche`
---
-ALTER TABLE `notifiche`
-  MODIFY `IdAlert` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- Limiti per le tabelle scaricate
---
-
---
--- Limiti per la tabella `notifiche`
---
-ALTER TABLE `notifiche`
-  ADD CONSTRAINT `notifiche_ibfk_1` FOREIGN KEY (`UserPost`) REFERENCES `persone` (`Username`),
-  ADD CONSTRAINT `notifiche_ibfk_2` FOREIGN KEY (`User`) REFERENCES `persone` (`Username`);
-COMMIT;
 
 --
 -- Struttura della tabella `follower`
@@ -126,8 +93,8 @@ CREATE TABLE `post` (
   `media_file` VARCHAR(45) NOT NULL,
   `created_time` VARCHAR(45) NOT NULL,
   `caption` VARCHAR(45) NULL,
-  `longitude` VARCHAR(45) NULL, --NON so se serve
-  `latitude` VARCHAR(45) NULL, --NON so se serve
+  --`longitude` VARCHAR(45) NULL, --NON so se serve
+  --`latitude` VARCHAR(45) NULL, --NON so se serve
   `post_type` INT NOT NULL,
   PRIMARY KEY (`post_id`),
   CONSTRAINT `Username`
@@ -180,7 +147,7 @@ CREATE TABLE `comment` (
   `user_profile_id` char(45) NOT NULL,
   `comment_text` VARCHAR(2000) NOT NULL,
   `created_time` INT NOT NULL,
-  `comment_replied_to_id` INT NULL,
+  --`comment_replied_to_id` INT NULL,
   PRIMARY KEY (`comment_id`),
   CONSTRAINT `post_id`
     FOREIGN KEY (`post_id`)
@@ -268,12 +235,14 @@ COMMIT;
 --
 --Riempimento Tabella persone
 --
-INSERT INTO `persone` (`Username`, `Nome`, `Cognome`, `Sesso`, `Email`, `Password`, `Paese`, `DataNascita`, `Città`, `Foto`) 
-VALUES ('mmarioRoss', 'Mario', 'Rossi', 'Maschio', 'marioRossi@hotmail.com', 'mario0', 'Canada', '1999-02-15', 'Toronto', '../images/face2.jpg');
+INSERT INTO `persone` (`Username`, `Nome`, `Cognome`, `Sesso`, `Email`, `Password`,`DataNascita`, `Città`, `Foto`) 
+VALUES ('mmarioRoss', 'Mario', 'Rossi', 'Maschio', 'marioRossi@hotmail.com', 'mario0', '1999-02-15', 'Toronto, Canada', '../images/face2.jpg');
 
-INSERT INTO `persone` (`Username`,`Nome`,`Cognome`,`Sesso`,`Email`,`Password`,`Paese`,`DataNascita`,`Città`,`Foto`)
-VALUES (`ginaPina99`,`Gina`,`Pina`,`Femmina`,`ginaPina@hotmail.com`,`gina1`,`USA`,`1996-10-08`,`New York,"../images/face1.jpg");
+INSERT INTO `persone` (`Username`, `Nome`, `Cognome`, `Sesso`, `Email`, `DataNascita`, `Città`, `Foto`, `Password`) 
+VALUES ('ginaPina99', 'Gina', 'Pina', 'Femmina', 'ginaPina@hotmail.com', '1996-10-08', 'New York, USA', '../images/face1.jpg', 'gina1');
 
+INSERT INTO `persone` (`Username`, `Nome`, `Cognome`, `Sesso`, `Email`, `DataNascita`, `Città`, `Foto`, `Password`) 
+VALUES ('aaronP', 'aaron', 'Piper', 'Maschio', 'aaronPiper@hotmail.com', '1997-08-25', 'Madrid, Spagna', '../images/face3.png', 'aaron1');
 
 --
 --Riempimento Tabella post
@@ -289,6 +258,8 @@ VALUES (3, `ginaPina99`, `../images/face1.jpg`,`2023-02-01 02:45`,`Lorem ipsum d
 
 INSERT INTO `post` (`post_id`, `created_by_user_id`, `media_file`, `created_time`, `caption`, `longitude`, `latitude`, `post_type`)
 VALUES (4,`mmarioRoss`, `../images/pic1.png.jpg`,`2022-12-01 18:02`,`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus finibus commodo bibendum. Vivamus laoreet blandit odio, vel finibus quam dictum ut. Lorem ipsum dolor sit amet, consectetur adipiscing elit.`,``,``, `luogo`);
+
+
 --
 --Riempimento Tabella post_type
 --
@@ -304,3 +275,16 @@ INSERT INTO `post_type` (`post_type_id`,`post_type_name`)
 VALUES (`05`,`Tips_mezzi`);
 INSERT INTO `post_type` (`post_type_id`,`post_type_name`)
 VALUES (`06`,`Road_trip`);
+
+
+--
+--Riempimento Tabella post
+--
+INSERT INTO `post` (`post_id`, `created_by_user_id`, `media_file`, `created_time`, `caption`, `post_type`)
+VALUES ('01', 'mmarioRoss', '../images/pic2.png', '2022-02-26 11:10:10.000000', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', '2');
+
+INSERT INTO `post` (`post_id`, `created_by_user_id`, `media_file`, `created_time`, `caption`, `post_type`) 
+VALUES ('02', 'ginaPina99', '../images/pic1.png', '2022-10-08 15:20:04.000000', 'Omenare imperavi ameno. Dimere, dimere matiro. Matiremo. Ameno.', '2');
+
+INSERT INTO `post` (`post_id`, `created_by_user_id`, `media_file`, `created_time`, `caption`, `post_type`) 
+VALUES ('03', 'ginaPina99', '../images/pic3.png', '2023-01-02 23:14:06.000000', 'Good day, good pic :)', '6');

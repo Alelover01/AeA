@@ -12,7 +12,7 @@
 
     <title>See&Go - Homepage</title>
    
-    <link rel="shortcut icon" href=".../progetto/images/logo.jpg">
+    <link rel="shortcut icon" href="../images/logo.jpg">
   </head>
   <body class="bg-light">
     <header class="py-3 text-white bg-dark">
