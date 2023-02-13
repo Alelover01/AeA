@@ -108,12 +108,9 @@
                           </div>   
                   
                         <div class="card-footer">
-                            <small class="align-middle">
-                              <button  id="btn_like" name="btn_like" type="button" class="btn btn-trasparent mb-2  d-inline-block text-muted text-center" 
-                                        data-post-id="<?php var_dump($lastPostParams[0]["post_id"]); echo $lastPostParams[0]["post_id"]; ?>">
-                              <strong><?php //$_SESSION["post_id"]=$lastPostParams[0]["post_id"]; 
-                                            $numlike=count($dbh->getLikesPost($lastPostParams[0]["post_id"])); 
-                                            echo $numlike;?></strong> Likes</small>
+                            <small class="align-middle text-muted">
+                            <strong><?php $numlike=count($dbh->getLikesPost($lastPostParams[0]["post_id"])); 
+                                            echo $numlike;?></strong> Likes.</small>
                             </button>
                           <a href=# class="d-inline-block text-muted ml-3">
                             <small class="align-middle">
@@ -141,6 +138,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <!-- <script src="../js/like.js"></script> -->
   </body>
 </html>
