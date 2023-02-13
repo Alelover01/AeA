@@ -66,11 +66,7 @@
     <div class="container-fluid p-0 overflow-hidden">
             
 
-        <div class="py-4 px-4"> 
-            <!-- <div class="d-flex align-items-center justify-content-between mb-3"> 
-                <h5 class="mb-0">Photos recommended</h5>
-                <a href="#" class="btn btn-link text-muted">Show all</a> 
-            </div>  -->
+        <div class="py-4 px-4">
             <div class="row"> 
                 <?php 
                       $typeId=$_GET['id'];
@@ -78,12 +74,14 @@
                       foreach($postsType as $post):
                 ?>
                 <div class="col-lg-4 mb-4 pr-lg-1">
+                     <a href='index_post_other.php?post_id=<?php echo $post["post_id"];?>&page=3&userId=<?php echo $post["created_by_user_id"];?>'>
                     <img src="<?php echo $post["media_file"];?>" style="width: 80%; height: 100%;" alt="" class="img-fluid rounded shadow-sm">
+                    </a>
                 </div> 
                 <?php endforeach;?>
             </div>
 
-            
+        </div>
             <!-- FOOTER -->
         <div class="row">
             <div class="col-12">
@@ -91,7 +89,7 @@
                         <p class="font-monospace text-center">See&Go</p>
                     </footer>   
             </div>   
-        </div>       
+               
     </main>
     <script src="../js/cerca.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
