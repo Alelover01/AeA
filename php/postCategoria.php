@@ -1,22 +1,28 @@
+<?php
+    require_once '../db/bootstrap.php';
+    require_once '../db/database.php';
+    $titolo=$dbh->getPost_TypeyById($_GET['id']);
+?>
 <!DOCTYPE html>
 <html lang="it">
     <head>
         <link rel="shortcut icon" href="../images/logo.jpg">
-        <title>See&Go - Homepage</title>
+        <title>See&Go - <?php echo $titolo[0]["post_type_name"]; ?> </title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        <link rel="stylesheet" href="../css/cerca_style.css" >
+        
         <link rel="stylesheet" href="../css/menu_style.css" >
+        <link rel="stylesheet" href="../css/home_style.css" >
         <script src="../js/menu.js"></script>
         
         
   </head>
   <body class="bg-light">
     <header class="py-3 text-white bg-dark">
-      <h1 class="font-monospace text-center">See&Go - Homepage</h1>
+      <h1 class="font-monospace text-center">See&Go - <?php echo $titolo[0]["post_type_name"]; ?></h1>
     </header> 
     <!-- MENU A COMPARSA -->
               <aside>
@@ -44,21 +50,29 @@
             </aside>
 
     <main>
-    <input type="usrSearch" id="usrSearch" name="usrSearch" class="col form-control" placeholder="Search"/>
-    <label class="form-label" for="search"></label>
-    <button id="btn_search" name="btn_search" type="submit" class="btn btn-primary btn-block mt-2 mb-4">Cerca</button>
-    <button type="button" class="btn text-white bg-dark btn-block"><a class="text-white text-decoration-none" href="cerca.php">Back</a></button>
-        <div class="container-fluid p-0 overflow-hidden">
+    <div class="row align-items-start ">
+        <div class="col-lg mt-4 ">
+        <button type="button" class="btn text-white bg-dark btn-block "><a class="text-white" href="cerca.php">Back</a></button>
+        </div>
+            <div class="col-lg ">
+                <label class="form-label" for="search"></label>
+                <input type="usrSearch" id="usrSearch" name="usrSearch" class="col form-control col-lg  offset-lg-2  d-flex " placeholder="Search"/>
+            </div>
+            <div class="col-sm">
+                <button id="btn_search" name="btn_search" type="submit" class="btn btn-primary btn-block mt-4 mb-4 col-lg-3 offset-lg-2  d-flex justify-content-center">Cerca</button>
+            </div>
+</div>
+       
+    <div class="container-fluid p-0 overflow-hidden">
             
 
         <div class="py-4 px-4"> 
-            <div class="d-flex align-items-center justify-content-between mb-3"> 
+            <!-- <div class="d-flex align-items-center justify-content-between mb-3"> 
                 <h5 class="mb-0">Photos recommended</h5>
                 <a href="#" class="btn btn-link text-muted">Show all</a> 
-            </div> 
+            </div>  -->
             <div class="row"> 
-                <?php require_once '../db/bootstrap.php';
-                require_once '../db/database.php';
+                <?php 
                       $typeId=$_GET['id'];
                       $postsType=$dbh->getPostCategories($typeId);
                       foreach($postsType as $post):

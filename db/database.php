@@ -325,7 +325,7 @@ class DatabaseHelper{
         $stmt->bind_param('ss',$foto,$username);
         $stmt->execute();
         $result = $stmt->get_result();
-        return $result->fetch_all(MYSQLI_ASSOC);
+        return $result;
     }
     public function updatePass($pass,$username) {
         $query = "UPDATE persone SET Password= ? WHERE Username = ?";
@@ -333,7 +333,7 @@ class DatabaseHelper{
         $stmt->bind_param('ss',$pass,$username);
         $stmt->execute();
         $result = $stmt->get_result();
-        return $result->fetch_all(MYSQLI_ASSOC);
+        return $result;
     }
     public function updateLuogo($luogo,$username) {
         $query = "UPDATE persone SET Città= ? WHERE Username = ?";
@@ -341,7 +341,7 @@ class DatabaseHelper{
         $stmt->bind_param('ss',$luogo,$username);
         $stmt->execute();
         $result = $stmt->get_result();
-        return $result->fetch_all(MYSQLI_ASSOC);
+        return $result;
     }
     
 }

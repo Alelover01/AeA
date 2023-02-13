@@ -8,7 +8,8 @@ function checkPassword() {
             msg.textContent = "Password Matched";
             msg.style.backgroundColor = "#1dcd59";
             let username = document.getElementById("lbUsername").value;
-            let foto = document.getElementById("btnFile").value;
+            let newFoto = document.getElementById("btnFile").files[0];
+            let foto = newFoto.name;
             let nome = document.getElementById("lbNome").value;
             let cognome = document.getElementById("lbCognome").value;
             let sesso = document.getElementById("lbSesso").value;

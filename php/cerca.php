@@ -14,10 +14,10 @@
     <title>See&GO - Login</title>
     <link rel="shortcut icon" href="../images/logo.jpg">
 </head>
-<body>
+<body style=" background-image: url(../images/images.jpg) ; width: 100%; height: 100%;; background-size: cover; background-repeat: no-repeat;">
 <main>
         <!-- Section: Background image -->
-<section  class=" bg-image" style=" background-image: url(../images/Rockies_in_the_morning.jpg) ; width: 100%; height: 100%;; background-size: cover; background-repeat: no-repeat;">
+<section  class=" bg-image" >
         <header class="py-4">
             <h1 class="font-monospace fw-bold text-center">See&GO - EXPLORE</h1>
         </header>
@@ -55,43 +55,38 @@
                         </div>
             </div>
         </div>
-    <div class="col-lg-8  offset-lg-2  d-flex justify-content-center align-items-center">
-        <!-- <div class="container-fluid p-0 overflow-hidden"> -->
-            <div class="card shadow " style="border-radius: 1rem;">
-            
-                        <div class="py-4 px-4"> 
-                            <div class="row align-items-start ">
-                                <?php  require_once '../db/bootstrap.php';
-                                        $categories=$dbh->getPost_Type();
-                                        foreach($categories as $type_cat):?>
-                                        <?php ?>
-                                    <div class="col-md-4">
-                                        <div class="box box-widget widget-user-2">
-                                            <div class="bg-image card shadow-1-strong text-center" style="background-color: #20c997; width: 100%; height: 100%;">
-                                                        <div class="d-grid gap-2 col-5 mx-auto">
-                                                            <a href='postCategoria.php?id=<?php echo $type_cat["post_type_id"];?>'>
-                                                                <button class="btn btn-outline-dark btn-lg btn-block mt-2 mb-2 fw-bold text-center" id="<?php echo $type_cat["post_type_id"];?>" name="btnCategory" type="button">
-                                                                <?php echo $type_cat["post_type_name"];?></button>
-                                                            </a> 
-                                                        </div>
+       
+          <div class="container-fluid p-0 overflow-hidden">
+           
+                <div class="py-4 px-0"> 
+                      <div class="bg-white shadow rounded"> 
+                            <div class="im2 px-4 pt-2 pb-4">
+                                <div class="row align-items-start">
+                                    <?php  require_once '../db/bootstrap.php';
+                                            $categories=$dbh->getPost_Type();
+                                            foreach($categories as $type_cat):?>
+                                            <?php ?>
+                                        <div class="col-md-4">
+                                            <div class="box box-widget widget-user-2">
+                                                <div class="bg-image card shadow-1-strong text-center" style="background-color: #54B4D3; width: 100%; height: 100%;">
+                                                    <div class="d-grid gap-2 col-5 mx-auto">
+                                                        <a href='postCategoria.php?id=<?php echo $type_cat["post_type_id"];?>'>
+                                                            <button class="btn btn-outline-dark btn-lg btn-block mt-2 mb-2 fw-bold text-center" id="<?php echo $type_cat["post_type_id"];?>" name="btnCategory" type="button">
+                                                            <?php echo $type_cat["post_type_name"];?></button>
+                                                        </a> 
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                <?php endforeach; ?>
+                                    <?php endforeach; ?>
+                                </div>
                             </div>
-             </div>
-        <!-- </div> -->
-    </div>
-</section> 
-         <!-- FOOTER -->
-         <div class="row">
-            <div class="col-12">
-                    <footer class="py-3 text-white bg-dark ">
-                        <p class="font-monospace text-center">See&Go</p>
-                    </footer>   
-            </div>   
-        </div>  
-        
+                        </div>
+                 </div>
+            </div>
+         </div>
+   
+</section>
     
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
