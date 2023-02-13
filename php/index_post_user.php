@@ -3,6 +3,7 @@ require_once "../db/bootstrap.php";
 
     $templateParams["profile"] = array("Username" => $_SESSION["Username"]);
     $_SESSION['post_id']=$_GET['post_id'];
+    $_SESSION['page']=$_GET['page'];
     $templateParams["post"] = array('post_id' => $_GET['post_id']);
     $templateParams["profile"] = array_merge($templateParams["profile"], array("Foto" => $dbh->getUserParams($_SESSION["Username"])[0]["Foto"]));
     $templateParams["post"] = array_merge($templateParams["post"], array("created_time" => $dbh->getPostUser($_SESSION["Username"], $_SESSION["post_id"])[0]["created_time"]));
