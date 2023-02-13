@@ -1,27 +1,3 @@
-<?php
-// require "../db/database.php";
-// require "../db/bootstrap.php";
-
-// if(isset($_POST["btnRegistrati"])){
-//     //campi che ci servono 
-    
-//     $didascalia = $_POST["txtDidascalia"];
-//     $categoria = $_POST["txtCategoria"];
-//     $sesso = $_POST["cbSesso"];
-
-//     $result = $dbh->checkRegistration($username, $email);
-//     if ($result >0){
-//         echo "Username o email già presenti nel database";
-//         //la registrazione non ha avuto successo
-//     }
-//     else {
-//         $result= $dbh->registration($username,$nome, $cognome, $sesso, $email, $password, $dataNascita, $città);
-//         echo "Registrazione avvenuta con successo";
-//         //registrazione avvenuta con successo
-//     }
-// }
-
-// ?>
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -87,15 +63,6 @@
                             </select>
                         </div>
                     </div>
-					
-					<!-- Campo per Città
-                    <div class="form-group row">
-                        <div class="col-md-2"></div>
-                        <label class="col-md-3" for="lbCittà">Città:</label>
-                        <div class="form-group col-md-6">
-                            <input id="lbCittà" name="txtCittà" class="form-control" placeholder="Milan" type="text" required />
-                        </div>
-                    </div> -->
 
                     <!-- Bottone che invia tutto -->
                     <div class="form-group">
