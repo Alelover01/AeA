@@ -33,13 +33,13 @@
                   <nav class="aComparsa">
                       <ul>
                           <li>
-                              <a href="home.html"><img src="../images/home.png" alt="Icona Home" /></a>
+                              <a href="home.php"><img src="../images/home.png" alt="Icona Home" /></a>
                           </li>
                           <li>
                               <a href="cerca.php"><img src="../images/cerca.png" alt="Icona Cerca" /></a>
                           </li>
                           <li>
-                              <a href="alert.html"><img src="../images/notifiche.png" alt="Icona Notifiche" /></a>
+                              <a href="alert.php"><img src="../images/notifiche.png" alt="Icona Notifiche" /></a>
                           </li>
                           <li>
                               <a href='index_user_profile.php'><img src="../images/profilo.png" alt="Icona Profilo" /></a>
@@ -48,100 +48,65 @@
                   </nav>
         
             </aside>
-          <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"> -->
 
     <main>
         <div class="col-md-8 offset-md-2 col-lg-8 offset-lg-2 div-wrapper d-flex justify-content-center align-items-center">
           <div class="container-fluid p-0 overflow-hidden">
 
-              <!-- <div class="container posts-content"> -->
-                
-                <!-- NON CAPISCO SE SERVE -->
-                  <!-- <div class="col-150"> -->
-                      <!-- RIQUADRO SOTTO BIANCO -->
-                      <div class="py-4 px-0"> 
-                        <div class="bg-white shadow rounded"> 
-                            <div class="im2 px-4 pt-2 pb-4">
-                            
+            <!-- RIQUADRO SOTTO BIANCO -->
+            <?php 
+                  require_once '../db/bootstrap.php';
+                  require_once '../db/database.php';
+                  $userFollowed=$dbh->getFollowed($_SESSION["Username"]);
+                  //var_dump($userFollowed);
+                  foreach($userFollowed as $iduser):?>
+              <div class="py-4 px-0"> 
+                <div class="bg-white shadow rounded"> 
+                  <div class="im2 px-4 pt-2 pb-4">
+                        <?php //var_dump($iduser["followed_user_id"]);
+                        $userParams=$dbh->getUserParams($iduser["followed_user_id"]); 
+                        //var_dump($userParams);?>
+                        <div class="media mb-3">
+                          <!-- POST -->
+                          <img src=<?php echo $userParams[0]["Foto"];?> class="d-block ui-w-20 rounded-circle" alt="">
+                          <div class="media-body ml-3">
+                          <?php echo $userParams[0]["Nome"];?> <?php echo $userParams[0]["Cognome"];?>
+                            <?php 
+                            $lastPostId=$dbh->getLastIdPostOfUser($userParams[0]["Username"]);
 
-                                  <div class="media mb-3">
-                                    <!-- PRIMO POST -->
-                                    <img src="https://i.pinimg.com/236x/13/34/25/133425fd2890d540e536e12a397bbf5c.jpg" class="d-block ui-w-20 rounded-circle" alt="">
-                                    <div class="media-body ml-3">
-                                      Kim Kardashian
-                                      <div class="text-muted small">3 days ago</div>
-                                    </div>
-                                  </div>
-                            
-                                  <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus finibus commodo bibendum. Vivamus laoreet blandit odio, vel finibus quam dictum ut.
-                                  </p>
-
-                                  <div class="col align-self-start">
-                                      <img src="https://tecnicafotografica.net/wp-content/uploads/2020/05/zajdgnxsmeg-e1590956555206.jpg" style="width: 90%; height: 100%;" alt="" class="img-fluid rounded mx-auto d-block">
-                                  </div>   
-                            
-                                  <div class="card-footer">
-                                    <a href="javascript:void(0)" class="d-inline-block text-muted">
-                                      <small class="align-middle">
-                                        <strong>123</strong> Likes</small>
-                                    </a>
-                                    <a href="javascript:void(0)" class="d-inline-block text-muted ml-3">
-                                      <small class="align-middle">
-                                        <strong>12</strong> Comments</small>
-                                    </a>
-                                    <a href="javascript:void(0)" class="d-inline-block text-muted ml-3">
-                                      <i class="ion ion-md-share align-middle"></i>&nbsp;
-                                      <small class="align-middle">Repost</small>
-                                    </a>
-                                  </div>
-                            </div>
+                            $lastPostParams=$dbh->getPostUser($userParams[0]["Username"],$lastPostId[0]["post_id"]);
+                            ?>
+                            <div class="text-muted small"><?php echo $lastPostParams[0]["created_time"]?></div>
+                          </div>
                         </div>
-                    </div>
-                  <!-- </div> -->
+                  
+                        <p>
+                        <?php echo $lastPostParams[0]["caption"]?>
+                        </p>
 
-                  <!-- <div class="col-10"> -->
-                    <div class="py-4 px-0"> 
-                        <div class="bg-white shadow rounded"> 
-                            <div class="im2 px-4 pt-2 pb-4">
-                            
-                                  <div class="media mb-3">
-                                    <!-- SECONDO POST -->
-                                    <img src="https://www.contra-ataque.it/wp-content/uploads/2022/11/Elite-6-Aron-Piper-1.jpeg" class="d-block ui-w-20 rounded-circle" alt="">
-                                    <div class="media-body ml-3">
-                                      Aron Piper
-                                      <div class="text-muted small">3 days ago</div>
-                                    </div>
-                                  </div>
-                            
-                                  <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus finibus commodo bibendum. Vivamus laoreet blandit odio, vel finibus quam dictum ut.
-                                  </p>
-
-                                  <div class="col align-self-start">
-                                      <img src="https://www.weshoot.it/blog/wp-content/uploads/2015/10/Schermata-2015-10-02-alle-11.50.13.jpg" style="width: 90%; height: 100%;" alt="" class="img-fluid rounded mx-auto d-block">
-                                  </div>   
-                            
-                                  <div class="card-footer">
-                                    <a href="javascript:void(0)" class="d-inline-block text-muted">
-                                      <small class="align-middle">
-                                        <strong>5000</strong> Likes</small>
-                                    </a>
-                                    <a href="javascript:void(0)" class="d-inline-block text-muted ml-3">
-                                      <small class="align-middle">
-                                        <strong>300</strong> Comments</small>
-                                    </a>
-                                    <a href="javascript:void(0)" class="d-inline-block text-muted ml-3">
-                                      <i class="ion ion-md-share align-middle"></i>&nbsp;
-                                      <small class="align-middle">Repost</small>
-                                    </a>
-                                  </div>
-                            </div>
+                        <div class="col align-self-start">
+                            <a href='index_post_other.php?post_id=<?php echo $lastPostParams[0]["post_id"];?>&page=1&userId=<?php echo $lastPostParams[0]["created_by_user_id"];?>'>
+                            <img src=<?php echo $lastPostParams[0]["media_file"]?> style="width: 90%; height: 100%;" alt="" class="img-fluid rounded mx-auto d-block">
+                            </a>
+                          </div>   
+                  
+                        <div class="card-footer">
+                            <small class="align-middle">
+                              <button  id="btn_like" name="btn_like" type="button" class="btn btn-trasparent mb-2  d-inline-block text-muted text-center" 
+                                        data-post-id="<?php var_dump($lastPostParams[0]["post_id"]); echo $lastPostParams[0]["post_id"]; ?>">
+                              <strong><?php //$_SESSION["post_id"]=$lastPostParams[0]["post_id"]; 
+                                            $numlike=count($dbh->getLikesPost($lastPostParams[0]["post_id"])); 
+                                            echo $numlike;?></strong> Likes</small>
+                            </button>
+                          <a href=# class="d-inline-block text-muted ml-3">
+                            <small class="align-middle">
+                              <strong><?php $numComments=count($dbh->getCommentsPost($lastPostParams[0]["post_id"])); echo $numComments;?></strong> Comments</small>
+                          </a>
                         </div>
-                    </div> 
-
-                    <!-- </div> -->
-              <!-- </div> -->
+                  </div>
+                </div>
+              </div>
+            <?php endforeach; ?>
           </div>
         </div>
 
@@ -154,6 +119,10 @@
             </div>   
         </div>       
     </main>
-   
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- <script src="../js/like.js"></script> -->
   </body>
 </html>
