@@ -49,8 +49,8 @@
                             </div>
 
                             <!-- 2 column grid layout for inline styling -->
-                            <div class="row mb-4">
-                            <div class="col d-flex justify-content-center align-items-center">
+                            <div class="row mb-2 mt-2">
+                            <div class="col-12 d-flex  justify-content-center align-items-center">
                                 <!-- Checkbox -->
                                 <div class="form-check">
                                         <input class="form-check-input" type="checkbox" value="" id="showPass"  />
@@ -59,13 +59,10 @@
                                 </div>
                                 <div class="col form-check">
                                     <!-- Checkbox -->
-                                        <div><input type="checkbox" name="remember" id="remember" 
+                                       <!-- <div><input type="checkbox" name="remember" id="remember" 
                                         <?php if(isset($_COOKIE["user_login"])) { ?> checked <?php } ?> />
                                         <label for="remember-me">Remember me</label>
-                                    
-                                    <!-- Simple link -->
-                                    <!--<a href="#!">Forgot password?</a>-->
-                                </div>
+                                        </div>-->
                             </div>
 
                             <!-- Submit button -->
@@ -76,7 +73,7 @@
 
                             <!-- Register buttons -->
                             <div class="text-center justify-content-center  mb-4 "></div>
-                                <p>Don't have an account? <a href="../template/registration.php">Register here</a></p>
+                                <p>Don't have an account? <a href="../template/registration.html">Register here</a></p>
                             </div>
                         </div>
                     </div>
