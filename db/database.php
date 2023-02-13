@@ -318,6 +318,31 @@ class DatabaseHelper{
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function updateFoto($foto,$username) {
+        $query = "UPDATE persone SET Foto= ? WHERE Username = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ss',$foto,$username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function updatePass($pass,$username) {
+        $query = "UPDATE persone SET Password= ? WHERE Username = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ss',$pass,$username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function updateLuogo($luogo,$username) {
+        $query = "UPDATE persone SET Città= ? WHERE Username = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ss',$luogo,$username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
     
 }
 ?>
