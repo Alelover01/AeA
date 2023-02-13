@@ -203,6 +203,15 @@ class DatabaseHelper{
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+    public function getPostCategories($idPost){
+        $query = "SELECT *  FROM `post` WHERE `post_type`=?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i',$idPost);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 
     public function getLikesPost($idPost){
         $query = "SELECT *  FROM `like` WHERE `post_id`=?"; 

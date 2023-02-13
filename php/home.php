@@ -16,7 +16,7 @@
   </head>
   <body class="bg-light">
     <header class="py-3 text-white bg-dark">
-      <h1 class="font-monospace text-center">See&Go - Homepage</h1>
+      <h1 class="font-monospace fw-bold text-center">See&Go - Homepage</h1>
       
     </header> 
               <aside>
@@ -26,7 +26,6 @@
                 </button>
                 
                 
-                <button type="button" class="btn text-white bg-dark btn-block"><a class="text-white text-decoration-none" href="post_form.php">Create Post</a></button>
                 
 
                   <!-- Menù a comparsa -->
@@ -39,7 +38,7 @@
                               <a href="cerca.php"><img src="../images/cerca.png" alt="Icona Cerca" /></a>
                           </li>
                           <li>
-                              <a href="alert.php"><img src="../images/notifiche.png" alt="Icona Notifiche" /></a>
+                              <a href="../template/alert.php"><img src="../images/notifiche.png" alt="Icona Notifiche" /></a>
                           </li>
                           <li>
                               <a href='index_user_profile.php'><img src="../images/profilo.png" alt="Icona Profilo" /></a>
@@ -50,6 +49,8 @@
             </aside>
 
     <main>
+    <button type="button" class="btn text-white bg-dark btn-block mt-2"><a class="text-white text-decoration-none" href="post_form.php">Create Post</a></button>
+
         <div class="col-md-8 offset-md-2 col-lg-8 offset-lg-2 div-wrapper d-flex justify-content-center align-items-center">
           <div class="container-fluid p-0 overflow-hidden">
 
@@ -69,14 +70,14 @@
                         <div class="media mb-3">
                           <!-- POST -->
                           <img src=<?php echo $userParams[0]["Foto"];?> class="d-block ui-w-20 rounded-circle" alt="">
-                          <div class="media-body ml-3">
+                          <div class="media-body ml-3 fw-bold">
                           <?php echo $userParams[0]["Nome"];?> <?php echo $userParams[0]["Cognome"];?>
                             <?php 
                             $lastPostId=$dbh->getLastIdPostOfUser($userParams[0]["Username"]);
 
                             $lastPostParams=$dbh->getPostUser($userParams[0]["Username"],$lastPostId[0]["post_id"]);
                             ?>
-                            <div class="text-muted small"><?php echo $lastPostParams[0]["created_time"]?></div>
+                            <div class="text-muted small fw-normal"><?php echo $lastPostParams[0]["created_time"]?></div>
                           </div>
                         </div>
                   

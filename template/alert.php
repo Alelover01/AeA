@@ -19,26 +19,26 @@ require "../db/bootstrap.php";
 </head>
 <body>
     <header class="py-3 text-white bg-dark">
-      <h1 class="font-monospace text-center">See&Go - Alerts</h1>
+      <h1 class="font-monospace fw-bold text-center">See&Go - Alerts</h1>
     </header> 
     <aside>
         <button class="hamburger">
             <div class="bar"></div>
         </button>
-        <!-- Menù a comparsa -->
+        <!-- MenÃ¹  a comparsa -->
         <nav class="aComparsa">
             <ul>
                 <li>
-                    <a href="home.php"><img src="../images/home.png" alt="Icona Home" /></a>
+                    <a href="../php/home.php"><img src="../images/home.png" alt="Icona Home" /></a>
                 </li>
                 <li>
-                    <a href="CercaProgetto.php"><img src="../images/cerca.png" alt="Icona Cerca" /></a>
+                    <a href="../php/cerca.php"><img src="../images/cerca.png" alt="Icona Cerca" /></a>
                 </li>
                 <li>
                     <a href="alert.php"><img src="../images/notifiche.png" alt="Icona Notifiche" /></a>
                 </li>
                 <li>
-                    <a href="profile.php"><img src="../images/profilo.png" alt="Icona Profilo" /></a>
+                    <a href="../php/index_user_profile.php"><img src="../images/profilo.png" alt="Icona Profilo" /></a>
                 </li>
             </ul>
         </nav>
