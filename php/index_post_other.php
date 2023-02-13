@@ -5,7 +5,7 @@ require_once "../db/bootstrap.php";
 $_SESSION['post_id']=$_GET['post_id'];
 $_SESSION['page']=$_GET['page'];
 $templateParams["post"] = array('post_id' => $_GET['post_id']); 
-if($_SESSION['page']==1){
+if($_SESSION['page']==1 || $_SESSION['page']==3){
     $_SESSION["usrSearch"]=$_GET['userId'];
 }
 $templateParams["profile"] = array("Username" => $_SESSION["usrSearch"]);
