@@ -68,8 +68,8 @@
                                             <?php ?>
                                         <div class="col-md-4">
                                             <div class="box box-widget widget-user-2">
-                                                <div class="bg-image card shadow-1-strong text-center" style="background-color: #54B4D3; width: 100%; height: 100%;">
-                                                    <div class="d-grid gap-2 col-5 mx-auto">
+                                                <div class="bg-image card shadow-1-strong text-center  mt-3 mb-2" style="background-color: #54B4D3; width: 100%; height: 100%;">
+                                                    <div class="d-grid gap-2 col-5 mx-auto ">
                                                         <a href='postCategoria.php?id=<?php echo $type_cat["post_type_id"];?>'>
                                                             <button class="btn btn-outline-dark btn-lg btn-block mt-2 mb-2 fw-bold text-center" id="<?php echo $type_cat["post_type_id"];?>" name="btnCategory" type="button">
                                                             <?php echo $type_cat["post_type_name"];?></button>
