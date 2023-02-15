@@ -7,7 +7,6 @@
 		($_FILES['btnFile']['type'] != 'image/jpeg' && $_FILES['btnFile']['type'] != 'image/png' && $_FILES['btnFile']['type'] != 'image/jpg') ||
 		($_FILES['btnFile']['size'] > 2000000) ||
 		(empty($_POST['cbCategoria']))) {
-
 			$result["success"]=false;
 		  }else{
 			

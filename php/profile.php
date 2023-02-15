@@ -19,7 +19,7 @@
     <body>
         <header >
             <div class="row ">
-                <h1 class="col-11 font-monospace fw-bold text-center pt-2 pb-2">See&Go</h1>
+                <h1 class="col-10 font-monospace fw-bold text-center pt-2 pb-2">See&Go</h1>
                 <?php if($templateParams["profile"]["Username"]==$_SESSION["Username"]): ?>
                 <button id="btn_logout" class="btn text-white font-monospace float-end col-1">Logout</button>
                 <?php endif; ?>
