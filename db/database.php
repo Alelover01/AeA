@@ -262,6 +262,16 @@ class DatabaseHelper{
         return $result;
     }
 
+    public function selectPostUser($postid){
+        $query1 = "SELECT created_by_user_id FROM `post` WHERE  `post_id` = ?;";
+        $stmt = $this->db->prepare($query1);
+        $stmt->bind_param('i',$postid);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
     public function insertPosts($post,$user, $author, $img, $text, $category){
         $query = "INSERT INTO `like` (`post_id`,`user_profile_id`, ')  VALUES (?,?)"; 
         $stmt = $this->db->prepare($query);
@@ -344,5 +354,23 @@ class DatabaseHelper{
         return $result;
     }
     
+    public function insertAlert($idAlert,$userpost,$descrizione,$user,$idpost){
+        $query = "INSERT INTO `notifiche` (`IdAlert`,`UserPost`, `Descrizione`,`User`,`IdPost`)  VALUES (?,?,?,?,?)"; 
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('isssi',$idAlert,$userpost,$descrizione,$user,$idpost);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result;
+    }
+
+    public function getLastIdAlert(){
+        $query = "SELECT MAX(`IdAlert`) as `IdAlert` FROM `notifiche` ORDER BY `IdAlert`;"; 
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 }
 ?>
