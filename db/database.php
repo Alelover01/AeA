@@ -69,6 +69,17 @@ class DatabaseHelper{
 
         return $result;
     }
+
+    public function deleteLikesPost($idPost){
+        $query = "DELETE FROM `like` WHERE `post_id`=?;"; 
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i',$idPost);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result;
+    }
+
     //funzione che controlla il login degli utenti
     public function checkLogin($Username, $Password){
         $query = "SELECT * FROM persone WHERE Username = ? AND Password = ?";
@@ -233,10 +244,10 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function insertComment($id,$comment,$user,$post){
-        $query = "INSERT INTO `comment` (`comment_id`,`comment_text`,`user_profile_id`,`post_id`)  VALUES (?,?,?,?)"; 
+    public function insertComment($id,$comment,$user,$post,$time){
+        $query = "INSERT INTO `comment` (`comment_id`,`comment_text`,`user_profile_id`,`post_id`,`created_time`)  VALUES (?,?,?,?,?)"; 
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ssss', $id,$comment,$user,$post);
+        $stmt->bind_param('sssss', $id,$comment,$user,$post,$time);
         $stmt->execute();
         $result = $stmt->get_result();
 
