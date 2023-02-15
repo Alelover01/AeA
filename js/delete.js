@@ -7,6 +7,7 @@ btn_delete.addEventListener("click", function(event){
                     alert("ERRORE! RIPROVA!");
                    window.location.reload();   
                 }else{
+                    //alert("ERRORE! RIPROVA!");
                 window.location.pathname = './AeA-main/php/index_user_profile.php';  
                 }
             }).catch(function (error) {

@@ -1,4 +1,3 @@
-
 const btn_like = document.getElementById("btn_like");
 btn_like.addEventListener("click", function(event){
         event.preventDefault();
