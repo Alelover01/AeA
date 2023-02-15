@@ -56,7 +56,7 @@ require "../db/bootstrap.php";
             <?php echo $alert['Descrizione'];
                 if ($alert['IdPost'] != 0){
             ?>
-            <div style="background:none;"><a href='index_post_user.php?post_id=<?php echo $alert['IdPost']; ?>'>Vai al post</a></div>
+            <div style="background:none;"><a href='../php/index_post_user.php?post_id=<?php echo $alert['IdPost']; ?>&page=2'>Vai al post</a></div>
             <?php 
                 }
             ?>
