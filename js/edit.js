@@ -1,5 +1,5 @@
 function edit(){
-    let action = document.getElementById('cbCategoria');
+    let action = document.getElementById('cbCategoria').value;
 
     if (action != 0) {
         let url = '../php/editProfile.php?action=' + action;
