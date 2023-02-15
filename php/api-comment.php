@@ -7,7 +7,8 @@ $result["success"] = false;
 	if(isset($_POST["comment"])) {
         $idComm=$dbh->getLastIdComm();
         var_dump($idComm[0]["comment_id"]+1);
-        $dbh->insertComment($idComm[0]["comment_id"]+1,$_POST["comment"], $_SESSION["Username"], $_SESSION["post_id"]);
+        $created_time = date("Y-m-d H:i:s");
+        $dbh->insertComment($idComm[0]["comment_id"]+1,$_POST["comment"], $_SESSION["Username"], $_SESSION["post_id"],$created_time);
         $idAlert=$dbh->getLastIdAlert();
         $description="Comment your post ";
         $user=$dbh->selectPostUser($_SESSION["post_id"]);
