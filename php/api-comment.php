@@ -8,6 +8,12 @@ $result["success"] = false;
         $idComm=$dbh->getLastIdComm();
         var_dump($idComm[0]["comment_id"]+1);
         $dbh->insertComment($idComm[0]["comment_id"]+1,$_POST["comment"], $_SESSION["Username"], $_SESSION["post_id"]);
+        $idAlert=$dbh->getLastIdAlert();
+        $description="Comment your post ";
+        $user=$dbh->selectPostUser($_SESSION["post_id"]);
+        var_dump($user[0]["created_by_user_id"]);
+        $dbh->insertAlert($idAlert[0]["IdAlert"]+1,$_SESSION["Username"],$description,$user[0]["created_by_user_id"],$_SESSION["post_id"]);
+
 		$result["success"] = true;
 
 		}else{

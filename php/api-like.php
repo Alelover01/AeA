@@ -9,10 +9,14 @@ $result["success"] = true;
         }
     }
     if($result["success"]){
-        //$_SESSION["post_id"];
-        //var_dump($_SESSION["post_id"]);
-        //var_dump($_POST['postId']);
+
         $dbh->insertLike( $_SESSION["post_id"],$_SESSION["Username"]);
+        $idAlert=$dbh->getLastIdAlert();
+        $description="Liked your post ";
+        $user=$dbh->selectPostUser($_SESSION["post_id"]);
+        var_dump($user[0]["created_by_user_id"]);
+        $dbh->insertAlert($idAlert[0]["IdAlert"]+1,$_SESSION["Username"],$description,$user[0]["created_by_user_id"],$_SESSION["post_id"]);
+        
     }   
 
 header('Content-Type: application/json');
