@@ -48,9 +48,10 @@ CREATE TABLE `persone` (
   `Cognome` char(22) NOT NULL,
   `Sesso` char(22) NOT NULL,
   `Email` char(22) NOT NULL,
-  `Password` char(22) NOT NULL,
+  `Password` char(22) NOT NULL COMMENT 'Campo da usare per fare il check con ripeti password',
+  --`Paese` char(45) NOT NULL,
   `DataNascita` date NOT NULL,
-  `Città` char(22) NOT NULL,
+  `Città` char(22) NOT NULL, COMMENT 'Andrà nel profilo'
   `Foto` char(22)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 -- --------------------------------------------------------
@@ -243,6 +244,12 @@ VALUES ('ginaPina99', 'Gina', 'Pina', 'Femmina', 'ginaPina@hotmail.com', '1996-1
 INSERT INTO `persone` (`Username`, `Nome`, `Cognome`, `Sesso`, `Email`, `DataNascita`, `Città`, `Foto`, `Password`) 
 VALUES ('aaronP', 'aaron', 'Piper', 'Maschio', 'aaronPiper@hotmail.com', '1997-08-25', 'Madrid, Spagna', '../images/face3.png', 'aaron1');
 
+INSERT INTO `persone` (`Username`, `Nome`, `Cognome`, `Sesso`, `Email`, `DataNascita`, `Città`, `Foto`, `Password`) 
+VALUES ('gigi1', 'Gigi', 'Hadid', 'Femmina', 'gigiHadid@gmail.com', '1995-07-05', 'Los Angeles, USA', '../images/face4.jpg', '0000000');
+
+INSERT INTO `persone` (`Username`, `Nome`, `Cognome`, `Sesso`, `Email`, `DataNascita`, `Città`, `Foto`, `Password`) 
+VALUES ('harryphoto', 'Harry', 'Ross', 'Maschio', 'harryRoss@hotmail.com', '1994-02-02', 'London, UK', '../images/face5.jpg', '2222222');
+
 --
 --Riempimento Tabella post
 --
@@ -257,6 +264,7 @@ VALUES (3, `ginaPina99`, `../images/face1.jpg`,`2023-02-01 02:45`,`Lorem ipsum d
 
 INSERT INTO `post` (`post_id`, `created_by_user_id`, `media_file`, `created_time`, `caption`, `longitude`, `latitude`, `post_type`)
 VALUES (4,`mmarioRoss`, `../images/pic1.png.jpg`,`2022-12-01 18:02`,`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus finibus commodo bibendum. Vivamus laoreet blandit odio, vel finibus quam dictum ut. Lorem ipsum dolor sit amet, consectetur adipiscing elit.`,``,``, `luogo`);
+
 
 
 --
@@ -287,3 +295,51 @@ VALUES ('02', 'ginaPina99', '../images/pic1.png', '2022-10-08 15:20:04.000000', 
 
 INSERT INTO `post` (`post_id`, `created_by_user_id`, `media_file`, `created_time`, `caption`, `post_type`) 
 VALUES ('03', 'ginaPina99', '../images/pic3.png', '2023-01-02 23:14:06.000000', 'Good day, good pic :)', '6');
+
+INSERT INTO `post` (`post_id`, `created_by_user_id`, `media_file`, `created_time`, `caption`, `post_type`) 
+VALUES ('10', 'harryphoto', '../images/cibo5.jpg', '2023-02-13 19:59:38.000000', 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '3');
+
+INSERT INTO `post` (`post_id`, `created_by_user_id`, `media_file`, `created_time`, `caption`, `post_type`) 
+VALUES ('11', 'mmarioRoss', '../images/outfit2.jpg', '2022-08-22 15:18:40.000000', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', '4');
+
+INSERT INTO `post` (`post_id`, `created_by_user_id`, `media_file`, `created_time`, `caption`, `post_type`) 
+VALUES ('12', 'mmarioRoss', '../images/itinerary.jpg', '2022-11-02 07:30:43.000000', 'Omenare imperavi ameno. Dimere, dimere matiro', '1');
+
+INSERT INTO `post` (`post_id`, `created_by_user_id`, `media_file`, `created_time`, `caption`, `post_type`)
+VALUES ('13', 'mmarioRoss', '../images/cibo4.jpg', '2023-01-13 12:05:50.000000', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', '3');
+
+INSERT INTO `post` (`post_id`, `created_by_user_id`, `media_file`, `created_time`, `caption`, `post_type`) 
+VALUES ('14', 'mmarioRoss', '../images/cibo2.png', '2023-01-30 20:12:16.000000', 'Omenare imperavi emulari, ameno', '3');
+
+INSERT INTO `post` (`post_id`, `created_by_user_id`, `media_file`, `created_time`, `caption`, `post_type`) 
+VALUES ('15', 'gigi1', '../images/cibo3.jpg', '2022-06-13 12:14:14.000000', 'Omenare imperavi emulari, ameno', '3');
+
+INSERT INTO `post` (`post_id`, `created_by_user_id`, `media_file`, `created_time`, `caption`, `post_type`) 
+VALUES ('16', 'gigi1', '../images/outfit1.jpg', '2022-11-14 17:16:20.000000', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', '4');
+
+INSERT INTO `post` (`post_id`, `created_by_user_id`, `media_file`, `created_time`, `caption`, `post_type`) 
+VALUES ('17', 'gigi1', '../images/transport2.jpg', '2022-12-13 18:20:47.000000', 'Omenare imperavi emulari, ameno', '5');
+
+INSERT INTO `post` (`post_id`, `created_by_user_id`, `media_file`, `created_time`, `caption`, `post_type`) 
+VALUES ('18', 'gigi1', '../images/transport3.jpg', '2023-01-10 14:00:16.000000', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', '5');
+
+INSERT INTO `post` (`post_id`, `created_by_user_id`, `media_file`, `created_time`, `caption`, `post_type`) 
+VALUES ('19', 'gigi1', '../images/outfit.png', '2023-01-30 20:21:29.000000', 'Omenare imperavi emulari, ameno', '4');
+
+INSERT INTO `post` (`post_id`, `created_by_user_id`, `media_file`, `created_time`, `caption`, `post_type`) 
+VALUES ('20', 'aaronP', '../images/transport.jpg', '2022-06-13 15:23:29.000000', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', '5');
+
+INSERT INTO `post` (`post_id`, `created_by_user_id`, `media_file`, `created_time`, `caption`, `post_type`) 
+VALUES ('21', 'aaronP', '../images/transport1.jpg', '2022-09-13 13:25:34.000000', 'Omenare imperavi emulari, ameno', '5');
+
+INSERT INTO `post` (`post_id`, `created_by_user_id`, `media_file`, `created_time`, `caption`, `post_type`) 
+VALUES ('22', 'aaronP', '../images/road.jpg', '2023-02-13 20:27:47.000000', 'Omenare imperavi emulari, ameno. Ameno dori me', '6');
+
+INSERT INTO `post` (`post_id`, `created_by_user_id`, `media_file`, `created_time`, `caption`, `post_type`) 
+VALUES ('23', 'harryphoto', '../images/road1.jpeg', '2023-02-12 15:28:50.000000', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', '6');
+
+INSERT INTO `post` (`post_id`, `created_by_user_id`, `media_file`, `created_time`, `caption`, `post_type`) 
+VALUES ('24', 'aaronP', '../images/itinerary3.jpg', '2023-02-13 20:31:15.000000', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', '1');
+
+INSERT INTO `post` (`post_id`, `created_by_user_id`, `media_file`, `created_time`, `caption`, `post_type`) 
+VALUES ('25', 'harryphoto', '../images/itinerary.png', '2023-02-13 20:32:14.000000', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', '1');
